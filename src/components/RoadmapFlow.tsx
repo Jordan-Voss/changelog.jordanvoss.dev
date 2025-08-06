@@ -1,16 +1,16 @@
 import React from 'react';
 import roadmapData from '../data/roadmapData.json';
-import ReactFlow, {
-  Background,
-  MiniMap,
-  Controls,
-  MarkerType,
-  Position,
-  useNodesState,
-  useEdgesState,
-  type Node,
-  type Edge,
+import ReactFlow, { 
+  Background, 
+  MiniMap, 
+  MarkerType, 
+  Position, 
+  useNodesState, 
+  useEdgesState, 
+  type Node, 
+  type Edge 
 } from 'reactflow';
+import Controls from 'reactflow';
 import 'reactflow/dist/style.css';
 
 function mapNodes(nodes: any[]): Node[] {

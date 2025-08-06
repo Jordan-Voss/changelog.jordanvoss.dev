@@ -16,7 +16,6 @@ const sidebars: SidebarsConfig = {
         type: 'generated-index',
         title: 'Roadmap Topics',
         description: 'Explore backend development topics like Java, Spring, and Microservices.',
-        slug: '/roadmap/topics',
       },
       items: [
         {
@@ -53,7 +52,7 @@ const sidebars: SidebarsConfig = {
           items: [],
         },
       ],
-    },    
+    },
 
     {
       type: 'category',

@@ -9,7 +9,7 @@ slug: /roadmap/java
 
 This section covers everything from core Java concepts to advanced features introduced in newer versions like Java 17+.
 
-You’ll also see how these concepts are implemented in my [Organiser App](/projects/organiser-app), a real-world Spring Boot project built alongside this roadmap.
+You’ll also see how these concepts are implemented in my [Organiser App](/projects/organiser), a real-world Spring Boot project built alongside this roadmap.
 
 ---
 
@@ -27,5 +27,5 @@ You’ll also see how these concepts are implemented in my [Organiser App](/proj
 
 Start here:
 
-- [OOP & SOLID](/roadmap/java/oop)
-- [Concurrency](/roadmap/java/concurrency)
+- [OOP & SOLID](/roadmap/java/basics)
+- [Concurrency](/roadmap/java/basics)

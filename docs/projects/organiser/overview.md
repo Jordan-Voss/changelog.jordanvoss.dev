@@ -42,4 +42,4 @@ This project will be built **incrementally** as we move through the roadmap.
 - Vertical slicing will be used to release working features early.
 - Horizontal slicing may be used to showcase deep dives on tech/tools.
 
-[📍 View the Organiser Project Roadmap](/docs/projects/organiser/roadmap/intro)
+[📍 View the Organiser Project Roadmap](/projects/organiser/roadmap/project-roadmap-index)
