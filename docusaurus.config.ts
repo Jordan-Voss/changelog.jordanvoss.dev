@@ -12,6 +12,7 @@ const config: Config = {
   projectName: 'changelog.jordanvoss.dev',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  deploymentBranch: 'gh-pages',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
