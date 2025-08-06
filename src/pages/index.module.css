@@ -1,0 +1,24 @@
+.heroBanner {
+  padding: 4rem 0;
+}
+
+.buttons {
+  margin-top: 1.5rem;
+}
+
+.introSection {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.introSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.introSection li {
+  margin-bottom: 1rem;
+}
