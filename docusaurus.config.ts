@@ -3,13 +3,13 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'My Dev Journey',
-  tagline: 'Becoming a Senior Developer, One Step at a Time',
+  title: 'My Personal Changelog',
+  tagline: 'Becoming a Better Developer, One Step at a Time',
   favicon: 'img/favicon.ico',
   url: 'https://changelog.jordanvoss.dev',
   baseUrl: '/',
-  organizationName: 'jordanvoss',
-  projectName: 'dev-journey-site',
+  organizationName: 'Jordan-Voss',
+  projectName: 'changelog.jordanvoss.dev',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   i18n: {
