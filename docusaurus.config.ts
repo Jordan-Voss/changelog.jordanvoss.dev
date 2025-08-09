@@ -13,6 +13,9 @@ const config: Config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   deploymentBranch: 'gh-pages',
+  plugins: [
+    'docusaurus-plugin-image-zoom',
+  ],
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -49,6 +52,18 @@ const config: Config = {
   ],
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
+    zoom: {
+      selector: '.markdown :not(em) > img',
+      background: {
+        light: 'rgb(255, 255, 255)',
+        dark: 'rgb(50, 50, 50)'
+      },
+      config: {
+        // Options from https://github.com/francoischalifour/medium-zoom#usage
+        margin: 48,
+        scrollOffset: 0,
+      }
+    },
     navbar: {
       title: 'My Dev Journey',
       logo: {

@@ -28,7 +28,18 @@ const sidebars: SidebarsConfig = {
               label: 'Basics',
               link: { type: 'doc', id: 'roadmap/java/basics/roadmap-java-basics' },
               items: [
-                'roadmap/java/basics/variables-data-types',
+                {
+                  type: 'category',
+                  label: 'Variables and Data Types',
+                  link: { type: 'doc', id: 'roadmap/java/basics/variables/variables-data-types' },
+                  items: [
+                    'roadmap/java/basics/variables/variable-scope',
+                    'roadmap/java/basics/variables/variable-modifiers',
+                    'roadmap/java/basics/variables/variable-naming',
+
+                  ],
+                }
+              ],},
                 'roadmap/java/basics/strings-methods',
                 'roadmap/java/basics/operations',
                 'roadmap/java/basics/loops',
@@ -51,9 +62,7 @@ const sidebars: SidebarsConfig = {
           link: { type: 'doc', id: 'roadmap/microservices' },
           items: [],
         },
-      ],
-    },
-
+  
     {
       type: 'category',
       label: 'Projects',

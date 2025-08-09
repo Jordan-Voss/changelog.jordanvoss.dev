@@ -2,8 +2,9 @@
 id: variables-data-types
 title: Variables and Data Types
 sidebar_label: Variables & Data Types
-slug: /roadmap/java/basics/variables-data-types
+slug: /roadmap/java/basics/variables/variables-data-types
 ---
+
 # ☕ Java Variables & Data Types
 
 Understanding variables and data types is foundational to programming in Java. This section breaks down what they are, how they're used, and some common pitfalls.
@@ -23,8 +24,11 @@ type variableName = value;
 
 `variableName` -> the **identifier** or **name** you assign to the variable.
 
-### Example
+### Declaring vs Initialising
 
+* Variable **declaration** tells the compiler the **name** and **type** of the variable
+* Variable **initialisation** assigns an initial value to the variable
+You can declare and initialise variables at the same time
 ```java
 int age = 27;
 String name = "Jordan";
@@ -34,6 +38,14 @@ This example will:
 * Create a variable called `age` that will store the `int` `27`.
 
 * Create a variable called `name` that will store the `String` (object) `'Jordan'`
+
+**Or**
+
+You can declare the variable first and assign a value later.
+```java
+int age;
+age = 27;
+```
 
 ---
 
@@ -48,16 +60,14 @@ The key difference is where and how the value is stored:
 
 * Primitive values live on the **stack**
 
-* Objects live in the **heap**, and the variable holds a reference to the heap in the stack.
+* Objects live Variablein the **heap**, and the variable holds a reference to the heap in the stack.
 
 ### 1. **Primitive Types**
 
 There are 8 primitive types:
 
 | Type     | Size     | Range / Notes                                                                  | Example                | Description                   |
-|----------|----------|----------------------------------------------------------------------------------|------------------------|-------------------------------|
-| `boolean`| 1-bit    | `true` or `false`                                                                | `boolean isTrue = true;` | A binary true/false value    |
-| `byte`   | 8-bit    | -128 to 127                                                                      | `byte b = 1;`           | Very small integer            |
+|----------|---Variable                                                        | `byte b = 1;`           | Very small integer            |
 | `short`  | 16-bit   | -32,768 to 32,767                                                                | `short s = 2;`          | Small integer                 |
 | `int`    | 32-bit   | -2,147,483,648 to 2,147,483,647                                                  | `int i = 10;`           | Most common integer type      |
 | `long`   | 64-bit   | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807                          | `long l = 100000L;`     | Large integer                 |
@@ -72,7 +82,7 @@ int b = a;
 b = 20;
 // 'a' is still 10, because 'b' is a separate piece of memory copied from 'a'
 ```
-![Primitive Types](/img/primitive.png)
+![Primitive Types](/img/Primitive-types.png)
 
 ### 2. **Reference Types** (objects)
 
@@ -110,6 +120,9 @@ System.out.println(name);        // Jordan
 System.out.println(anotherName); // Alex
 
 ```
+![Reference Types Imutable](/img/reference-types-immutable.png)
+
+
 **Mutable Example**
 ```java
 int[] numbers = {1, 2, 3};
@@ -122,30 +135,99 @@ System.out.println(numbers[0]);     // 99
 System.out.println(moreNumbers[0]); // 99
 ```
 
+![Reference Types Mutable](/img/reference-types-mutable.png)
+
 
 ---
 
 ## 🔄 Type Conversion
 
-### Implicit Conversion (Widening)
+### Type Promotion (Widening)
 
-Java automatically converts smaller types to larger types.
-
+Java automatically converts smaller types to larger types without losing data as the larger type can fully represent the smaller type's range.
+#### Order of promotion
+```
+byte → short → int → long → float → double
+               ↑
+             char
+```
+#### Example of promoting int to float and long
 ```java
-int a = 10;
-long b = a; // OK
+int i = 10;
+long l= i;
+float f = l;
 
+System.out.println("int: " + i);
+System.out.println("long: " + l);
+System.out.println("float: " + f);
+```
+**Output:**
+```
+int: 10
+long: 10
+float: 10.0
+```
+#### Why is float considered larger than long in Java?
+Even though long is a 64 bit integer, and float is a 32 bit floating point, Java treats float as "wider" as a float can represent a larger range of values
+Analogy:
+Imagine long is a list of whole numbers between 1 and 10:
+```
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 ```
 
-### Explicit Conversion (Narrowing)
+Whereas a float (to 1 decimal place) could store:
+```
+1.0, 1.1, 1.2, ..., 9.8, 9.9, 10.0
+```
 
-Requires casting.
+This is already more distinct values than the integer-only long in this small range and in reality floats can store values in the millions, billions, and even tiny decimals like 0.000001.
+
+#### Type Promotion Rules
+* Only works from smaller to larger types in terms of range, not just byte size
+* works between primitives of compatible types (char can be promoted to int and anything larger because it can be represented by a unicode number)
+
+```java
+char c = 'A'; // 'A' in Unicode is 65
+int i = c;
+
+System.out.println("int: " + c);
+```
+**Output:**
+```
+65
+```
+### Casting (Narrowing)
+
+Type casting is when you convert a value from a larger type to a smaller type. This cannot be done automatically and needs to be explicitly cast to the smaller value as there is a risk of data loss.
+
+#### When casting is necessary
+Casting can be used when you want to perform operations between different data types or you need to store a value of one type in a variable of another type.
 
 ```java
 double pi = 3.14;
-int rounded = (int) pi; // 3
+int i = (int) pi;
+
+System.out.println(i);
 
 ```
+**Output:**
+```
+3
+```
+### Example of overflow when casting
+```java
+int big = 130;
+byte small = (byte) big; // byte range: -128 to 127
+
+System.out.println(small);
+```
+**Output:**
+
+```
+-126
+```
+
+The byte value wraps around to the lower end of the range because 130 is too large for a byte.
 
 ---
 
@@ -170,5 +252,8 @@ Once assigned, it can’t be changed.
 - Be careful with **type conversions** to avoid data loss.
 
 ---
+📚 Learn more:
+- [Variable Scope](./variable-scope)
+- [Modifiers: public, private, static, final](./modifiers)
 
 [⬅ Back to Java Basics](notion://www.notion.so/roadmap/java/basics)
