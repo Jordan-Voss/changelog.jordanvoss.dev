@@ -4,30 +4,38 @@ title: Variables and Data Types
 sidebar_label: Variables & Data Types
 slug: /roadmap/java/basics/variables/variables-data-types
 ---
+import GlossaryTooltip from '@site/src/components/GlossaryTooltip';
 
-# ☕ Java Variables & Data Types
+# Java Variables & Data Types
 
 Understanding variables and data types is foundational to programming in Java. This section breaks down what they are, how they're used, and some common pitfalls.
 
 ---
 
-## 🧮 What is a Variable?
+## On this page you’ll learn:
+- How to declare and initialize variables
+- The difference between primitive and reference types
+- How to convert data types through promotion and casting
 
-A **variable** is a container that holds data during the execution of a program. In Java, every variable must be declared with a **type**. **Declaring a variable** means telling the compiler what type of data you want to store and what you want to name that storage location.
+---
+
+## What is a Variable?
+
+A <GlossaryTooltip term="variable" definition="A named storage location in memory for data, which has a type." link="/glossary/variable" bold="true"/> is a container that holds data during the execution of a program. In Java, every variable must be declared with a <GlossaryTooltip term="type" definition="A category of data that determines the possible values and operations for a variable." link="/glossary/data-type" bold="true"/>. **Declaring a variable** means telling the compiler what type of data you want to store and what you want to name that storage location.
 
 ### Syntax
 
 ```java
 type variableName = value;
 ```
-`type` -> the **data type** of the variable (e.g. `int`, `String`)
+`type` -> the <GlossaryTooltip term="data type" definition="Specifies the kind of data a variable can hold, such as integer, floating-point, or text." link="/glossary/data-type" bold="true"/> of the variable (e.g. `int`, `String`)
 
-`variableName` -> the **identifier** or **name** you assign to the variable.
+`variableName` -> the 	<GlossaryTooltip term="identifier" definition="The name given to a variable, method, class, or other element in code." link="/glossary/identifier" bold="true" /> or **name** you assign to the variable.
 
 ### Declaring vs Initialising
 
-* Variable **declaration** tells the compiler the **name** and **type** of the variable
-* Variable **initialisation** assigns an initial value to the variable
+* Variable 	<GlossaryTooltip term="declaration" definition="The act of defining a variable's name and type without assigning a value." link="/glossary/declaration" bold="true" /> tells the compiler the **name** and **type** of the variable
+* Variable <GlossaryTooltip term="initialization" definition="Assigning an initial value to a variable at the time of declaration or later." link="/glossary/initialization" bold="true" /> assigns an initial value to the variable
 You can declare and initialise variables at the same time
 ```java
 int age = 27;
@@ -49,25 +57,26 @@ age = 27;
 
 ---
 
-## 📦 Java Data Types
+## Java Data Types
 
 Java is a **statically typed** language, which means each variable’s type must be known at compile time. Java’s data types are divided into two groups:
 
-* Primitive Types
-* Object References
+* <GlossaryTooltip term="Primitive Types" definition="A basic data type built into the language, such as int, float, or char." link="/glossary/primitive-type" bold="true" />
+* <GlossaryTooltip term="Object References" definition="A data type that stores a reference to an object in memory, rather than the object itself." link="/glossary/reference-type" bold="true" />
 
 The key difference is where and how the value is stored:
 
-* Primitive values live on the **stack**
+* Primitive values live on the <GlossaryTooltip term="stack" definition="A region of memory that stores method calls and primitive variables, managed in a last-in-first-out manner." link="/glossary/stack" bold="true" />
 
-* Objects live Variablein the **heap**, and the variable holds a reference to the heap in the stack.
+* Objects live in the <GlossaryTooltip term="heap" definition="A region of memory used for storing objects and class instances, managed by the garbage collector." link="/glossary/heap" bold="true" />, and the variable holds a reference to the heap in the stack.
 
 ### 1. **Primitive Types**
 
 There are 8 primitive types:
 
 | Type     | Size     | Range / Notes                                                                  | Example                | Description                   |
-|----------|---Variable                                                        | `byte b = 1;`           | Very small integer            |
+|----------|----------|--------------------------------------------------------------------------------|------------------------|-------------------------------|
+| `byte`   | 8-bit    | -128 to 127                                                                    | `byte b = 1;`          | Very small integer            |
 | `short`  | 16-bit   | -32,768 to 32,767                                                                | `short s = 2;`          | Small integer                 |
 | `int`    | 32-bit   | -2,147,483,648 to 2,147,483,647                                                  | `int i = 10;`           | Most common integer type      |
 | `long`   | 64-bit   | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807                          | `long l = 100000L;`     | Large integer                 |
@@ -77,7 +86,8 @@ There are 8 primitive types:
 
 When declaring a variable that is a **primitive type** the actual value is stored in the memory allocated to that variable
 
-```java int a = 10;
+```java
+int a = 10;
 int b = a;
 b = 20;
 // 'a' is still 10, because 'b' is a separate piece of memory copied from 'a'
@@ -102,11 +112,11 @@ Reference types store a **reference (memory address)** that points to the actual
 | `String`    | N/A    | Immutable  | `String s = "hello";`    | Textual data                   |
 | `Array`     | N/A    | Mutable    | `int[] arr = {1, 2, 3};` | Fixed-size, ordered collection |
 
-🧠 Mutability Notes:
+#### Mutability Notes:
 
-* Wrapper classes (Integer -> int, Double -> double, etc.) is an object representation of a primitive data type. These classes as well as Strings are immutable, meaning their value cannot be changed after creation. Any operation creates a new object.
+* Wrapper classes (Integer -> int, Double -> double, etc.) is an object representation of a primitive data type. These classes as well as Strings are immu<GlossaryTooltip term="immutable" definition="An object whose state cannot be changed after it is created." link="/glossary/immutable" bold="false" />table, meaning their value cannot be changed after creation. Any operation creates a new object.
 
-* Arrays are mutable, you can change their contents even though the reference points to the same memory.
+* Arrays are 	<GlossaryTooltip term="mutable" definition="An object whose state can be changed after creation." link="/glossary/mutable" bold="false" />, you can change their contents even though the reference points to the same memory.
 
 **Immutable Example**
 ```java
@@ -120,7 +130,7 @@ System.out.println(name);        // Jordan
 System.out.println(anotherName); // Alex
 
 ```
-![Reference Types Imutable](/img/reference-types-immutable.png)
+![Reference Types Immutable](/img/reference-types-immutable.png)
 
 
 **Mutable Example**
@@ -140,16 +150,16 @@ System.out.println(moreNumbers[0]); // 99
 
 ---
 
-## 🔄 Type Conversion
+## Type Conversion
 
-### Type Promotion (Widening)
+### <GlossaryTooltip term="Type Promotion" definition="The automatic conversion of a smaller data type into a larger compatible type." link="/glossary/type-promotion" bold="true" /> <GlossaryTooltip term="(Widening)" definition="Another term for type promotion, converting to a larger type without loss of data." link="/glossary/widening" bold="true" />
 
 Java automatically converts smaller types to larger types without losing data as the larger type can fully represent the smaller type's range.
 #### Order of promotion
 ```
 byte → short → int → long → float → double
-               ↑
-             char
+                ↑
+               char
 ```
 #### Example of promoting int to float and long
 ```java
@@ -168,6 +178,7 @@ long: 10
 float: 10.0
 ```
 #### Why is float considered larger than long in Java?
+
 Even though long is a 64 bit integer, and float is a 32 bit floating point, Java treats float as "wider" as a float can represent a larger range of values
 Analogy:
 Imagine long is a list of whole numbers between 1 and 10:
@@ -196,7 +207,7 @@ System.out.println("int: " + c);
 ```
 65
 ```
-### Casting (Narrowing)
+### <GlossaryTooltip term="Casting" definition="Manually converting a value from one data type to another." link="/glossary/casting" bold="true" /> <GlossaryTooltip term="narrowing" definition="A type of casting that converts from a larger data type to a smaller one, potentially losing data." link="/glossary/narrowing" bold="true" />
 
 Type casting is when you convert a value from a larger type to a smaller type. This cannot be done automatically and needs to be explicitly cast to the smaller value as there is a risk of data loss.
 
@@ -214,7 +225,7 @@ System.out.println(i);
 ```
 3
 ```
-### Example of overflow when casting
+### Example of 	<GlossaryTooltip term="overflow" definition="When a value exceeds the maximum or minimum limit of its data type, causing it to wrap around." link="/glossary/overflow" bold="true" /> when casting
 ```java
 int big = 130;
 byte small = (byte) big; // byte range: -128 to 127
@@ -229,22 +240,14 @@ System.out.println(small);
 
 The byte value wraps around to the lower end of the range because 130 is too large for a byte.
 
----
+This happens because Java uses <GlossaryTooltip term="two’s complement" definition="A binary representation for signed integers where the MSB indicates sign." link="/glossary/twos-complement" bold="true" /> for signed integers.
+ to represent signed integers.  
+In two’s complement, when a value exceeds the maximum (`127` for a byte), it wraps around from the negative side of the range, producing `-126` in this case.
 
-## 🧠 Final Keyword (Constants)
-
-Use `final` to make a variable **constant**.
-
-```java
-final double PI = 3.14159;
-
-```
-
-Once assigned, it can’t be changed.
 
 ---
 
-## ✅ Summary
+## Summary
 
 - Variables store data and must be typed.
 - Java has **8 primitive types** and many reference types.
@@ -252,8 +255,8 @@ Once assigned, it can’t be changed.
 - Be careful with **type conversions** to avoid data loss.
 
 ---
-📚 Learn more:
+Learn more:
 - [Variable Scope](./variable-scope)
-- [Modifiers: public, private, static, final](./modifiers)
+- [Modifiers: public, private, static, final](./variable-modifiers)
 
 [⬅ Back to Java Basics](notion://www.notion.so/roadmap/java/basics)

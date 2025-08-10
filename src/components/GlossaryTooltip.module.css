@@ -1,0 +1,92 @@
+:root {
+  --gt-radius: 8px;
+  --gt-shadow: 0 10px 30px rgba(0,0,0,.18), 0 4px 12px rgba(0,0,0,.12);
+  --gt-bg: var(--ifm-background-surface-color);
+  --gt-fg: var(--ifm-font-color-base);
+  --gt-accent: var(--ifm-color-primary);
+  --gt-border: rgba(0,0,0,.08);
+}
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.termBtn {
+  all: unset;
+  cursor: pointer;
+  border-bottom: 1px dotted var(--gt-accent);
+  padding: 0 2px;
+  line-height: 1.25;
+}
+.termBtn:hover,
+.termBtn:focus-visible {
+  color: var(--gt-accent);
+  outline: none;
+  border-bottom-style: solid;
+}
+.bold {
+  font-weight: bold;
+}
+
+/* Tooltip panel */
+/* Tooltip panel */
+.tooltip {
+  z-index: 1000;
+  background: var(--gt-bg);
+  color: var(--gt-fg);
+  border: 1px solid var(--gt-border);
+  border-radius: var(--gt-radius);
+  box-shadow: var(--gt-shadow);
+  padding: 10px 14px 8px;
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none;
+  transition: opacity 120ms ease, transform 120ms ease;
+  
+  /* Better sizing */
+  min-width: 220px;         /* ensures small tooltips aren't too narrow */
+  max-width: 420px;         /* allow more breathing room for longer defs */
+  width: max-content;       /* expands to fit content if shorter than max */
+  line-height: 1.45;        /* more readable spacing */
+  word-wrap: break-word;    /* keeps long words from overflowing */
+}
+
+.open {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.content {
+  font-size: .92rem;
+  line-height: 1.35;
+  margin: 0 0 6px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.linkBtn {
+  all: unset;
+  cursor: pointer;
+  color: var(--gt-accent);
+  font-weight: 600;
+  font-size: .9rem;
+}
+.linkBtn:hover,
+.linkBtn:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+.arrow {
+  position: absolute;
+  width: 10px; height: 10px;
+  background: var(--gt-bg);
+  border-left: 1px solid var(--gt-border);
+  border-top: 1px solid var(--gt-border);
+  transform: rotate(45deg);
+}
