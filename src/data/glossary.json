@@ -1,0 +1,93 @@
+[
+    {
+      "term": "Variable",
+      "definition": "A named storage location in memory for data, which has a type.",
+      "link": "/glossary/variable"
+    },
+    {
+      "term": "Type",
+      "definition": "A category of data that determines the possible values and operations for a variable.",
+      "link": "/glossary/data-type"
+    },
+    {
+      "term": "Data Type",
+      "definition": "Specifies the kind of data a variable can hold, such as integer, floating-point, or text.",
+      "link": "/glossary/data-type"
+    },
+    {
+      "term": "Identifier",
+      "definition": "The name given to a variable, method, class, or other element in code.",
+      "link": "/glossary/identifier"
+    },
+    {
+      "term": "Declaration",
+      "definition": "The act of defining a variable's name and type without assigning a value.",
+      "link": "/glossary/declaration"
+    },
+    {
+      "term": "Initialization",
+      "definition": "Assigning an initial value to a variable at the time of declaration or later.",
+      "link": "/glossary/initialization"
+    },
+    {
+      "term": "Primitive Type",
+      "definition": "A basic data type built into the language, such as int, float, or char.",
+      "link": "/glossary/primitive-type"
+    },
+    {
+      "term": "Stack",
+      "definition": "A region of memory that stores method calls and primitive variables, managed in a last-in-first-out manner.",
+      "link": "/glossary/stack"
+    },
+    {
+      "term": "Reference Type",
+      "definition": "A data type that stores a reference to an object in memory, rather than the object itself.",
+      "link": "/glossary/reference-type"
+    },
+    {
+      "term": "Heap",
+      "definition": "A region of memory used for storing objects and class instances, managed by the garbage collector.",
+      "link": "/glossary/heap"
+    },
+    {
+      "term": "Immutable",
+      "definition": "An object whose state cannot be changed after it is created.",
+      "link": "/glossary/immutable"
+    },
+    {
+      "term": "Mutable",
+      "definition": "An object whose state can be changed after creation.",
+      "link": "/glossary/mutable"
+    },
+    {
+      "term": "Type Promotion",
+      "definition": "The automatic conversion of a smaller data type into a larger compatible type.",
+      "link": "/glossary/type-promotion"
+    },
+    {
+      "term": "Widening",
+      "definition": "Another term for type promotion, converting to a larger type without loss of data.",
+      "link": "/glossary/widening"
+    },
+    {
+      "term": "Casting",
+      "definition": "Manually converting a value from one data type to another.",
+      "link": "/glossary/casting"
+    },
+    {
+      "term": "Narrowing",
+      "definition": "A type of casting that converts from a larger data type to a smaller one, potentially losing data.",
+      "link": "/glossary/narrowing"
+    },
+    {
+      "term": "Overflow",
+      "definition": "When a value exceeds the maximum or minimum limit of its data type, causing it to wrap around.",
+      "link": "/glossary/overflow"
+    },
+    {
+      "term": "Two’s Complement",
+      "definition": "A binary representation for signed integers where the MSB indicates sign.",
+      "link": "/glossary/twos-complement"
+    }
+  ]
+  

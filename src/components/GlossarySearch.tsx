@@ -1,29 +1,11 @@
 import React, { useState } from 'react';
+import glossaryEntries from '@site/src/data/glossary.json'; // Import JSON directly
 
 type GlossaryEntry = {
   term: string;
   definition: string;
   link: string;
 };
-
-const glossaryEntries: GlossaryEntry[] = [
-  {
-    term: 'Heap',
-    definition: 'Memory region where objects are stored and managed dynamically.',
-    link: '/glossary/heap',
-  },
-  {
-    term: 'Stack',
-    definition: 'Memory used for local variables and function calls in LIFO order.',
-    link: '/glossary/stack',
-  },
-  {
-    term: 'Two’s Complement',
-    definition: 'Binary encoding method for signed integers where negatives are stored as the complement of their absolute value.',
-    link: '/glossary/twos-complement',
-  },
-  // ➕ Add new entries here
-];
 
 // Utility to group entries by first letter
 const groupByLetter = (entries: GlossaryEntry[]) => {
