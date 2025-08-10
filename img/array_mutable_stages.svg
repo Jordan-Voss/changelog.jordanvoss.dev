@@ -1,0 +1,284 @@
+<svg viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="900" height="650" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#2c3e50">
+    Array Mutable Assignment: Stack and Heap Memory Changes
+  </text>
+  
+  <!-- Stage 1: int[] numbers = {1, 2, 3}; -->
+  <g>
+    <!-- Code header -->
+    <rect x="30" y="60" width="270" height="30" fill="#3498db" rx="4"/>
+    <text x="165" y="80" text-anchor="middle" font-family="Monaco, monospace" font-size="12" font-weight="bold" fill="white">
+      int[] numbers = {1, 2, 3};
+    </text>
+    
+    <!-- Stack -->
+    <rect x="50" y="110" width="120" height="150" fill="#ecf0f1" stroke="#34495e" stroke-width="3" rx="5"/>
+    <text x="110" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">
+      STACK
+    </text>
+    
+    <!-- Stack grows downward indicator -->
+    <path d="M 25 140 L 25 180" stroke="#7f8c8d" stroke-width="2" marker-end="url(#arrowdown)"/>
+    <text x="10" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d" transform="rotate(-90, 10, 160)">grows</text>
+    
+    <!-- Variable numbers -->
+    <rect x="65" y="150" width="90" height="40" fill="white" stroke="#9b59b6" stroke-width="2" rx="3"/>
+    <rect x="75" y="160" width="40" height="20" fill="#e74c3c" rx="2"/>
+    <text x="95" y="173" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">numbers</text>
+    <rect x="120" y="160" width="35" height="20" fill="#f39c12" rx="2"/>
+    <text x="137" y="173" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">0x200A</text>
+    
+    <!-- Memory address -->
+    <text x="110" y="205" text-anchor="middle" font-family="Monaco, monospace" font-size="9" fill="#7f8c8d">0x3001</text>
+    
+    <!-- Heap -->
+    <rect x="190" y="110" width="120" height="150" fill="#fef9e7" stroke="#e67e22" stroke-width="3" rx="5"/>
+    <text x="250" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">
+      HEAP
+    </text>
+    
+    <!-- Array object in heap -->
+    <rect x="205" y="150" width="90" height="70" fill="#27ae60" stroke="#27ae60" stroke-width="2" rx="3"/>
+    <text x="250" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">int[] Array</text>
+    
+    <!-- Array elements -->
+    <rect x="215" y="175" width="20" height="20" fill="#3498db" rx="2"/>
+    <text x="225" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">1</text>
+    <rect x="240" y="175" width="20" height="20" fill="#3498db" rx="2"/>
+    <text x="250" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">2</text>
+    <rect x="265" y="175" width="20" height="20" fill="#3498db" rx="2"/>
+    <text x="275" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">3</text>
+    
+    <!-- Array indices -->
+    <text x="225" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">[0]</text>
+    <text x="250" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">[1]</text>
+    <text x="275" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">[2]</text>
+    
+    <text x="250" y="235" text-anchor="middle" font-family="Monaco, monospace" font-size="9" fill="#7f8c8d">0x200A</text>
+    
+    <!-- Reference arrow -->
+    <path d="M 160 170 L 200 180" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    
+    <!-- Explanation -->
+    <text x="165" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#34495e">
+      'numbers' references array object
+    </text>
+  </g>
+  
+  <!-- Stage 2: int[] moreNumbers = numbers; -->
+  <g>
+    <!-- Code header -->
+    <rect x="330" y="60" width="280" height="30" fill="#9b59b6" rx="4"/>
+    <text x="470" y="80" text-anchor="middle" font-family="Monaco, monospace" font-size="12" font-weight="bold" fill="white">
+      int[] moreNumbers = numbers;
+    </text>
+    
+    <!-- Stack -->
+    <rect x="350" y="110" width="120" height="150" fill="#ecf0f1" stroke="#34495e" stroke-width="3" rx="5"/>
+    <text x="410" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">
+      STACK
+    </text>
+    
+    <!-- Stack grows downward indicator -->
+    <path d="M 325 140 L 325 190" stroke="#7f8c8d" stroke-width="2" marker-end="url(#arrowdown)"/>
+    <text x="310" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d" transform="rotate(-90, 310, 165)">grows</text>
+    
+    <!-- Variable numbers (existing) -->
+    <rect x="365" y="150" width="90" height="35" fill="white" stroke="#9b59b6" stroke-width="2" rx="3"/>
+    <rect x="375" y="158" width="40" height="18" fill="#e74c3c" rx="2"/>
+    <text x="395" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">numbers</text>
+    <rect x="420" y="158" width="30" height="18" fill="#f39c12" rx="2"/>
+    <text x="435" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">0x200A</text>
+    <text x="410" y="200" text-anchor="middle" font-family="Monaco, monospace" font-size="9" fill="#7f8c8d">0x3001</text>
+    
+    <!-- Variable moreNumbers (new) -->
+    <rect x="365" y="210" width="90" height="35" fill="white" stroke="#9b59b6" stroke-width="2" rx="3"/>
+    <rect x="375" y="218" width="50" height="18" fill="#e74c3c" rx="2"/>
+    <text x="400" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">moreNumbers</text>
+    <rect x="430" y="218" width="20" height="18" fill="#f39c12" rx="2"/>
+    <text x="440" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">0x200A</text>
+    <text x="410" y="255" text-anchor="middle" font-family="Monaco, monospace" font-size="9" fill="#7f8c8d">0x3002</text>
+    
+    <!-- Copy reference arrow -->
+    <path d="M 435 185 Q 445 197 435 210" stroke="#f39c12" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+    <text x="460" y="197" font-family="Arial, sans-serif" font-size="9" fill="#f39c12" font-weight="bold">COPY REF</text>
+    
+    <!-- Heap -->
+    <rect x="490" y="110" width="120" height="150" fill="#fef9e7" stroke="#e67e22" stroke-width="3" rx="5"/>
+    <text x="550" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">
+      HEAP
+    </text>
+    
+    <!-- Same Array object in heap -->
+    <rect x="505" y="150" width="90" height="70" fill="#27ae60" stroke="#27ae60" stroke-width="2" rx="3"/>
+    <text x="550" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">int[] Array</text>
+    
+    <!-- Array elements -->
+    <rect x="515" y="175" width="20" height="20" fill="#3498db" rx="2"/>
+    <text x="525" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">1</text>
+    <rect x="540" y="175" width="20" height="20" fill="#3498db" rx="2"/>
+    <text x="550" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">2</text>
+    <rect x="565" y="175" width="20" height="20" fill="#3498db" rx="2"/>
+    <text x="575" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">3</text>
+    
+    <!-- Array indices -->
+    <text x="525" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">[0]</text>
+    <text x="550" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">[1]</text>
+    <text x="575" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">[2]</text>
+    
+    <text x="550" y="235" text-anchor="middle" font-family="Monaco, monospace" font-size="9" fill="#7f8c8d">0x200A</text>
+    
+    <!-- Reference arrows - both pointing to same object -->
+    <path d="M 455 167 L 500 175" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M 455 227 Q 475 200 500 185" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    
+    <!-- Explanation -->
+    <text x="470" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#34495e">
+      Both variables reference same array
+    </text>
+  </g>
+  
+  <!-- Stage 3: moreNumbers[0] = 99; -->
+  <g>
+    <!-- Code header -->
+    <rect x="630" y="60" width="240" height="30" fill="#e67e22" rx="4"/>
+    <text x="750" y="80" text-anchor="middle" font-family="Monaco, monospace" font-size="12" font-weight="bold" fill="white">
+      moreNumbers[0] = 99;
+    </text>
+    
+    <!-- Stack -->
+    <rect x="650" y="110" width="120" height="150" fill="#ecf0f1" stroke="#34495e" stroke-width="3" rx="5"/>
+    <text x="710" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">
+      STACK
+    </text>
+    
+    <!-- Stack grows downward indicator -->
+    <path d="M 625 140 L 625 190" stroke="#7f8c8d" stroke-width="2" marker-end="url(#arrowdown)"/>
+    <text x="610" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d" transform="rotate(-90, 610, 165)">grows</text>
+    
+    <!-- Variable numbers (unchanged reference) -->
+    <rect x="665" y="150" width="90" height="35" fill="white" stroke="#9b59b6" stroke-width="2" rx="3"/>
+    <rect x="675" y="158" width="40" height="18" fill="#e74c3c" rx="2"/>
+    <text x="695" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">numbers</text>
+    <rect x="720" y="158" width="30" height="18" fill="#f39c12" rx="2"/>
+    <text x="735" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">0x200A</text>
+    <text x="710" y="200" text-anchor="middle" font-family="Monaco, monospace" font-size="9" fill="#7f8c8d">0x3001</text>
+    
+    <!-- Variable moreNumbers (unchanged reference) -->
+    <rect x="665" y="210" width="90" height="35" fill="white" stroke="#9b59b6" stroke-width="2" rx="3"/>
+    <rect x="675" y="218" width="50" height="18" fill="#e74c3c" rx="2"/>
+    <text x="700" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">moreNumbers</text>
+    <rect x="730" y="218" width="20" height="18" fill="#f39c12" rx="2"/>
+    <text x="740" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">0x200A</text>
+    <text x="710" y="255" text-anchor="middle" font-family="Monaco, monospace" font-size="9" fill="#7f8c8d">0x3002</text>
+    
+    <!-- Heap -->
+    <rect x="790" y="110" width="90" height="150" fill="#fef9e7" stroke="#e67e22" stroke-width="3" rx="5"/>
+    <text x="835" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">
+      HEAP
+    </text>
+    
+    <!-- Modified Array object in heap -->
+    <rect x="800" y="150" width="70" height="70" fill="#27ae60" stroke="#e74c3c" stroke-width="3" rx="3"/>
+    <text x="835" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">int[] Array</text>
+    
+    <!-- Array elements - first one modified -->
+    <rect x="810" y="175" width="15" height="20" fill="#e74c3c" stroke="#e74c3c" stroke-width="2" rx="2"/>
+    <text x="817" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">99</text>
+    <rect x="830" y="175" width="15" height="20" fill="#3498db" rx="2"/>
+    <text x="837" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">2</text>
+    <rect x="850" y="175" width="15" height="20" fill="#3498db" rx="2"/>
+    <text x="857" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">3</text>
+    
+    <!-- Array indices -->
+    <text x="817" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">[0]</text>
+    <text x="837" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">[1]</text>
+    <text x="857" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">[2]</text>
+    
+    <text x="835" y="235" text-anchor="middle" font-family="Monaco, monospace" font-size="9" fill="#7f8c8d">0x200A</text>
+    
+    <!-- Reference arrows - both pointing to same modified object -->
+    <path d="M 755 167 L 795 175" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M 755 227 Q 772 200 795 185" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    
+    <!-- Modification indicator -->
+    <circle cx="817" cy="185" r="12" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+    <text x="817" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#e74c3c" font-weight="bold">MODIFIED</text>
+    
+    <!-- Explanation -->
+    <text x="750" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#34495e">
+      Object modified, both see change
+    </text>
+  </g>
+  
+  <!-- Timeline arrows -->
+  <path d="M 305 185 L 325 185" stroke="#34495e" stroke-width="3" marker-end="url(#arrowright)" fill="none"/>
+  <path d="M 615 185 L 625 185" stroke="#34495e" stroke-width="3" marker-end="url(#arrowright)" fill="none"/>
+  
+  <!-- Output section -->
+  <rect x="50" y="330" width="800" height="80" fill="#2c3e50" rx="8"/>
+  <text x="450" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3498db">
+    Output Results - Both Variables Affected!
+  </text>
+  
+  <rect x="70" y="370" width="350" height="30" fill="#e74c3c" rx="4"/>
+  <text x="245" y="390" text-anchor="middle" font-family="Monaco, monospace" font-size="14" font-weight="bold" fill="white">
+    System.out.println(numbers[0]); // 99
+  </text>
+  
+  <rect x="480" y="370" width="350" height="30" fill="#e74c3c" rx="4"/>
+  <text x="655" y="390" text-anchor="middle" font-family="Monaco, monospace" font-size="14" font-weight="bold" fill="white">
+    System.out.println(moreNumbers[0]); // 99
+  </text>
+  
+  <!-- Bottom explanation -->
+  <rect x="50" y="430" width="800" height="180" fill="#34495e" rx="8"/>
+  <text x="450" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e74c3c">
+    Why Arrays Are Mutable - Shared Reference Problem
+  </text>
+  
+  <!-- Key points in columns -->
+  <g fill="#ecf0f1" font-family="Arial, sans-serif" font-size="12">
+    <text x="80" y="485" font-weight="bold">Array Mutability:</text>
+    <text x="80" y="500">• Array objects CAN be modified</text>
+    <text x="80" y="515">• Elements can be changed in place</text>
+    <text x="80" y="530">• Same object, different content</text>
+    <text x="80" y="545">• No new object creation needed</text>
+    
+    <text x="320" y="485" font-weight="bold">Reference Sharing:</text>
+    <text x="320" y="500">• Multiple variables point to same object</text>
+    <text x="320" y="515">• Modification affects ALL references</text>
+    <text x="320" y="530">• Changes are immediately visible</text>
+    <text x="320" y="545">• This can cause unexpected side effects</text>
+    
+    <text x="580" y="485" font-weight="bold">Key Difference from Strings:</text>
+    <text x="580" y="500">• Arrays: modify existing object</text>
+    <text x="580" y="515">• Strings: create new object</text>
+    <text x="580" y="530">• Arrays: shared state changes</text>
+    <text x="580" y="545">• Strings: independent state</text>
+  </g>
+  
+  <!-- Arrow marker definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" 
+     refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#e74c3c" />
+    </marker>
+    <marker id="arrowhead2" markerWidth="8" markerHeight="6" 
+     refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f39c12" />
+    </marker>
+    <marker id="arrowdown" markerWidth="8" markerHeight="6" 
+     refX="4" refY="5" orient="auto">
+      <polygon points="0 0, 8 0, 4 6" fill="#7f8c8d" />
+    </marker>
+    <marker id="arrowright" markerWidth="8" markerHeight="6" 
+     refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#34495e" />
+    </marker>
+  </defs>
+</svg>
