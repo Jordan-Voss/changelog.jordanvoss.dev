@@ -1,0 +1,340 @@
+[
+  {
+    "type": "folder",
+    "name": "glossary",
+    "path": "glossary",
+    "children": [
+      {
+        "type": "file",
+        "name": "casting",
+        "path": "glossary/casting.md"
+      },
+      {
+        "type": "file",
+        "name": "data-type",
+        "path": "glossary/data-type.md"
+      },
+      {
+        "type": "file",
+        "name": "declaration",
+        "path": "glossary/declaration.md"
+      },
+      {
+        "type": "file",
+        "name": "glossary",
+        "path": "glossary/glossary.md"
+      },
+      {
+        "type": "file",
+        "name": "heap",
+        "path": "glossary/heap.md"
+      },
+      {
+        "type": "file",
+        "name": "identifier",
+        "path": "glossary/identifier.md"
+      },
+      {
+        "type": "file",
+        "name": "immutable",
+        "path": "glossary/immutable.md"
+      },
+      {
+        "type": "file",
+        "name": "initialisation",
+        "path": "glossary/initialisation.md"
+      },
+      {
+        "type": "file",
+        "name": "mutable",
+        "path": "glossary/mutable.md"
+      },
+      {
+        "type": "file",
+        "name": "narrowing",
+        "path": "glossary/narrowing.md"
+      },
+      {
+        "type": "file",
+        "name": "overflow",
+        "path": "glossary/overflow.md"
+      },
+      {
+        "type": "file",
+        "name": "primitive-type",
+        "path": "glossary/primitive-type.md"
+      },
+      {
+        "type": "file",
+        "name": "reference-type",
+        "path": "glossary/reference-type.md"
+      },
+      {
+        "type": "file",
+        "name": "stack",
+        "path": "glossary/stack.md"
+      },
+      {
+        "type": "file",
+        "name": "twos-complement",
+        "path": "glossary/twos-complement.md"
+      },
+      {
+        "type": "file",
+        "name": "type-promotion",
+        "path": "glossary/type-promotion.md"
+      },
+      {
+        "type": "file",
+        "name": "type",
+        "path": "glossary/type.md"
+      },
+      {
+        "type": "file",
+        "name": "variable",
+        "path": "glossary/variable.md"
+      },
+      {
+        "type": "file",
+        "name": "widening",
+        "path": "glossary/widening.md"
+      }
+    ]
+  },
+  {
+    "type": "file",
+    "name": "intro",
+    "path": "intro.md"
+  },
+  {
+    "type": "folder",
+    "name": "projects",
+    "path": "projects",
+    "children": [
+      {
+        "type": "folder",
+        "name": "organiser",
+        "path": "projects/organiser",
+        "children": [
+          {
+            "type": "file",
+            "name": "overview",
+            "path": "projects/organiser/overview.md"
+          },
+          {
+            "type": "folder",
+            "name": "roadmap",
+            "path": "projects/organiser/roadmap",
+            "children": [
+              {
+                "type": "file",
+                "name": "java",
+                "path": "projects/organiser/roadmap/java.md"
+              },
+              {
+                "type": "file",
+                "name": "microservices",
+                "path": "projects/organiser/roadmap/microservices.md"
+              },
+              {
+                "type": "file",
+                "name": "organiser-roadmap-intro",
+                "path": "projects/organiser/roadmap/organiser-roadmap-intro.md"
+              },
+              {
+                "type": "file",
+                "name": "project-roadmap-index",
+                "path": "projects/organiser/roadmap/project-roadmap-index.mdx"
+              },
+              {
+                "type": "file",
+                "name": "spring",
+                "path": "projects/organiser/roadmap/spring.md"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "roadmap",
+    "path": "roadmap",
+    "children": [
+      {
+        "type": "folder",
+        "name": "java",
+        "path": "roadmap/java",
+        "children": [
+          {
+            "type": "folder",
+            "name": "basics",
+            "path": "roadmap/java/basics",
+            "children": [
+              {
+                "type": "file",
+                "name": "arrays",
+                "path": "roadmap/java/basics/arrays.md"
+              },
+              {
+                "type": "file",
+                "name": "conditionals",
+                "path": "roadmap/java/basics/conditionals.md"
+              },
+              {
+                "type": "file",
+                "name": "lifecycle",
+                "path": "roadmap/java/basics/lifecycle.md"
+              },
+              {
+                "type": "file",
+                "name": "loops",
+                "path": "roadmap/java/basics/loops.md"
+              },
+              {
+                "type": "file",
+                "name": "memory",
+                "path": "roadmap/java/basics/memory.md"
+              },
+              {
+                "type": "file",
+                "name": "operations",
+                "path": "roadmap/java/basics/operations.md"
+              },
+              {
+                "type": "file",
+                "name": "roadmap-java-basics",
+                "path": "roadmap/java/basics/roadmap-java-basics.md"
+              },
+              {
+                "type": "file",
+                "name": "strings-methods",
+                "path": "roadmap/java/basics/strings-methods.md"
+              },
+              {
+                "type": "folder",
+                "name": "variables",
+                "path": "roadmap/java/basics/variables",
+                "children": [
+                  {
+                    "type": "file",
+                    "name": "modifiers",
+                    "path": "roadmap/java/basics/variables/modifiers.md"
+                  },
+                  {
+                    "type": "file",
+                    "name": "variable-naming",
+                    "path": "roadmap/java/basics/variables/variable-naming.md"
+                  },
+                  {
+                    "type": "file",
+                    "name": "variable-scope",
+                    "path": "roadmap/java/basics/variables/variable-scope.md"
+                  },
+                  {
+                    "type": "file",
+                    "name": "variables-data-types",
+                    "path": "roadmap/java/basics/variables/variables-data-types.mdx"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "roadmap-java-index",
+            "path": "roadmap/java/roadmap-java-index.md"
+          },
+          {
+            "type": "folder",
+            "name": "springboot",
+            "path": "roadmap/java/springboot",
+            "children": [
+              {
+                "type": "file",
+                "name": "roadmap-springboot",
+                "path": "roadmap/java/springboot/roadmap-springboot.md"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "file",
+        "name": "microservices",
+        "path": "roadmap/microservices.md"
+      },
+      {
+        "type": "file",
+        "name": "roadmap-index",
+        "path": "roadmap/roadmap-index.mdx"
+      },
+      {
+        "type": "file",
+        "name": "spring",
+        "path": "roadmap/spring.md"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "tutorial-basics",
+    "path": "tutorial-basics",
+    "children": [
+      {
+        "type": "file",
+        "name": "congratulations",
+        "path": "tutorial-basics/congratulations.md"
+      },
+      {
+        "type": "file",
+        "name": "create-a-blog-post",
+        "path": "tutorial-basics/create-a-blog-post.md"
+      },
+      {
+        "type": "file",
+        "name": "create-a-document",
+        "path": "tutorial-basics/create-a-document.md"
+      },
+      {
+        "type": "file",
+        "name": "create-a-page",
+        "path": "tutorial-basics/create-a-page.md"
+      },
+      {
+        "type": "file",
+        "name": "deploy-your-site",
+        "path": "tutorial-basics/deploy-your-site.md"
+      },
+      {
+        "type": "file",
+        "name": "markdown-features",
+        "path": "tutorial-basics/markdown-features.mdx"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "tutorial-extras",
+    "path": "tutorial-extras",
+    "children": [
+      {
+        "type": "folder",
+        "name": "img",
+        "path": "tutorial-extras/img",
+        "children": []
+      },
+      {
+        "type": "file",
+        "name": "manage-docs-versions",
+        "path": "tutorial-extras/manage-docs-versions.md"
+      },
+      {
+        "type": "file",
+        "name": "translate-your-site",
+        "path": "tutorial-extras/translate-your-site.md"
+      }
+    ]
+  }
+]

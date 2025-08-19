@@ -1,69 +1,77 @@
 {
-    "nodes": [
-      {
-        "id": "intro",
-        "position": { "x": 0, "y": 0 },
-        "data": { "label": "🏠 Intro", "url": "/" },
-        "style": { "backgroundColor": "#e0f7fa", "padding": 10, "borderRadius": 8 }
+  "nodes": [
+    {
+      "id": "java",
+      "type": "main",
+      "position": {
+        "x": 400,
+        "y": 0
       },
-      {
-        "id": "java",
-        "position": { "x": 250, "y": 0 },
-        "data": { "label": "☕ Java", "url": "/roadmap/java" },
-        "style": { "backgroundColor": "#fff3e0", "padding": 10, "borderRadius": 8 }
+      "data": {
+        "label": "Java",
+        "color": "blue"
       },
-      {
-        "id": "basics",
-        "position": { "x": 500, "y": 0 },
-        "data": { "label": "📘 Basics", "url": "/roadmap/java/basics" },
-        "style": { "backgroundColor": "#e1f5fe", "padding": 10, "borderRadius": 8 }
-      },
-      {
-        "id": "variables",
-        "position": { "x": 750, "y": -200 },
-        "data": { "label": "🧮 Variables & Types", "url": "/roadmap/java/basics/variables-data-types" },
-        "style": { "backgroundColor": "#ede7f6", "padding": 10, "borderRadius": 8 }
-      },
-      {
-        "id": "strings",
-        "position": { "x": 750, "y": -100 },
-        "data": { "label": "🔤 Strings & Methods", "url": "/roadmap/java/basics/strings-methods" },
-        "style": { "backgroundColor": "#fff3e0", "padding": 10, "borderRadius": 8 }
-      },
-      {
-        "id": "operations",
-        "position": { "x": 750, "y": 0 },
-        "data": { "label": "➕ Operations", "url": "/roadmap/java/basics/operations" },
-        "style": { "backgroundColor": "#f1f8e9", "padding": 10, "borderRadius": 8 }
-      },
-      {
-        "id": "conditionals",
-        "position": { "x": 750, "y": 100 },
-        "data": { "label": "🔀 Conditionals", "url": "/roadmap/java/basics/conditionals" },
-        "style": { "backgroundColor": "#fce4ec", "padding": 10, "borderRadius": 8 }
-      },
-      {
-        "id": "loops",
-        "position": { "x": 750, "y": 200 },
-        "data": { "label": "🔁 Loops", "url": "/roadmap/java/basics/loops" },
-        "style": { "backgroundColor": "#fff9c4", "padding": 10, "borderRadius": 8 }
-      },
-      {
-        "id": "arrays",
-        "position": { "x": 750, "y": 300 },
-        "data": { "label": "📚 Arrays", "url": "/roadmap/java/basics/arrays" },
-        "style": { "backgroundColor": "#c8e6c9", "padding": 10, "borderRadius": 8 }
+      "measured": {
+        "width": 42,
+        "height": 41
       }
-    ],
-    "edges": [
-      { "id": "e1", "source": "intro", "target": "java" },
-      { "id": "e2", "source": "java", "target": "basics" },
-      { "id": "e3", "source": "basics", "target": "variables" },
-      { "id": "e4", "source": "basics", "target": "strings" },
-      { "id": "e5", "source": "basics", "target": "operations" },
-      { "id": "e6", "source": "basics", "target": "conditionals" },
-      { "id": "e7", "source": "basics", "target": "loops" },
-      { "id": "e8", "source": "basics", "target": "arrays" }
-    ]
-  }
-  
+    },
+    {
+      "id": "basics",
+      "type": "group",
+      "position": {
+        "x": 152.7268778246932,
+        "y": 76.56462543114338
+      },
+      "data": {
+        "label": "Basics",
+        "children": [
+          "Variables",
+          "Data Types",
+          "Control Flow"
+        ]
+      },
+      "measured": {
+        "width": 150,
+        "height": 141
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "oop",
+      "type": "group",
+      "position": {
+        "x": 552.7268778246932,
+        "y": 70.40128705549992
+      },
+      "data": {
+        "label": "OOP",
+        "children": [
+          "Classes",
+          "Inheritance",
+          "Polymorphism",
+          "Interfaces"
+        ]
+      },
+      "measured": {
+        "width": 150,
+        "height": 165
+      },
+      "selected": true,
+      "dragging": false
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "source": "java",
+      "target": "basics"
+    },
+    {
+      "id": "e2",
+      "source": "basics",
+      "target": "oop"
+    }
+  ]
+}

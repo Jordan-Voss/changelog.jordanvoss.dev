@@ -1,0 +1,41 @@
+{
+    "spineColor": "#ef4444",
+    "spacing": 280,
+    "branchSpacing": 220,
+    "diagonalRise": 110,
+    "spine": [
+      { "id": "java",   "title": "Java",   "bio": "The hub for language & ecosystem." },
+      { "id": "basics", "title": "Basics", "bio": "Core building blocks." },
+      { "id": "oop",    "title": "OOP",    "bio": "Classes, inheritance, polymorphism." }
+    ],
+    "branches": [
+      {
+        "fromId": "basics",
+        "color": "#3b82f6",
+        "direction": "up",
+        "stations": [
+          {
+            "id": "variables",
+            "title": "Variables",
+            "subpages": [
+              { "title": "Overview", "url": "/roadmap/java/basics/variables" }
+            ]
+          },
+          { "id": "arrays", "title": "Arrays", "subpages": [ { "title": "Arrays", "url": "/roadmap/java/basics/arrays" } ] },
+          { "id": "conditionals", "title": "Conditionals", "subpages": [ { "title": "Conditionals", "url": "/roadmap/java/basics/conditionals" } ] },
+          { "id": "loops", "title": "Loops", "subpages": [ { "title": "Loops", "url": "/roadmap/java/basics/loops" } ] }
+        ]
+      },
+      {
+        "fromId": "oop",
+        "color": "#10b981",
+        "direction": "down",
+        "stations": [
+          { "id": "classes", "title": "Classes & Objects", "subpages": [ { "title": "Classes", "url": "/roadmap/java/oo/classes" } ] },
+          { "id": "inheritance", "title": "Inheritance", "subpages": [ { "title": "Inheritance", "url": "/roadmap/java/oo/inheritance" } ] },
+          { "id": "polymorphism", "title": "Polymorphism", "subpages": [ { "title": "Polymorphism", "url": "/roadmap/java/oo/polymorphism" } ] }
+        ]
+      }
+    ]
+  }
+  

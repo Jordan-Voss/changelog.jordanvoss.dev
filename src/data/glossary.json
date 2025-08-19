@@ -25,9 +25,9 @@
       "link": "/glossary/declaration"
     },
     {
-      "term": "Initialization",
+      "term": "Initialisation",
       "definition": "Assigning an initial value to a variable at the time of declaration or later.",
-      "link": "/glossary/initialization"
+      "link": "/glossary/initialisation"
     },
     {
       "term": "Primitive Type",

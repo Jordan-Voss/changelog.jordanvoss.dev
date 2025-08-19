@@ -1,0 +1,69 @@
+{
+    "title": "Java",
+    "ctaLeft": { "label": "Visit Backend Roadmap", "url": "/roadmap/backend" },
+    "ctaRight": { "label": "roadmap.sh", "url": "https://roadmap.sh/java" },
+    "centerAction": { "label": "Learn the Basics", "url": "/roadmap/java/basics" },
+    "sections": [
+      {
+        "id": "basics-left",
+        "title": "Basics (Left)",
+        "side": "left",
+        "items": [
+          { "id": "basic-syntax", "title": "Basic Syntax", "url": "/roadmap/java/basics/syntax" },
+          { "id": "lifecycle", "title": "Lifecycle of a Program", "url": "/roadmap/java/basics/lifecycle" },
+          { "id": "types", "title": "Data Types", "url": "/roadmap/java/basics/types" },
+          { "id": "vars-scope", "title": "Variables & Scopes", "url": "/roadmap/java/basics/variables" },
+          { "id": "type-casting", "title": "Type Casting", "url": "/roadmap/java/basics/casting" }
+        ]
+      },
+      {
+        "id": "basics-right",
+        "title": "Basics (Right)",
+        "side": "right",
+        "items": [
+          { "id": "strings-methods", "title": "Strings & Methods", "url": "/roadmap/java/basics/strings-methods" },
+          { "id": "ops", "title": "Math Operations", "url": "/roadmap/java/basics/operations" },
+          { "id": "arrays", "title": "Arrays", "url": "/roadmap/java/basics/arrays" },
+          { "id": "conditionals", "title": "Conditionals", "url": "/roadmap/java/basics/conditionals" },
+          { "id": "loops", "title": "Loops", "url": "/roadmap/java/basics/loops" },
+          { "id": "basics-oop", "title": "Basics of OOP", "url": "/roadmap/java/oo/intro" }
+        ]
+      },
+      {
+        "id": "oop-left",
+        "title": "Basics of OOP",
+        "side": "left",
+        "items": [
+          { "id": "classes", "title": "Classes & Objects", "url": "/roadmap/java/oo/classes" },
+          { "id": "attributes", "title": "Attributes & Methods", "url": "/roadmap/java/oo/methods" },
+          { "id": "access", "title": "Access Specifiers", "url": "/roadmap/java/oo/access" },
+          { "id": "static", "title": "Static / Final", "url": "/roadmap/java/oo/static-final" },
+          { "id": "packages", "title": "Packages", "url": "/roadmap/java/oo/packages" }
+        ]
+      },
+      {
+        "id": "oop-right",
+        "title": "More about OOP",
+        "side": "right",
+        "items": [
+          { "id": "lifecycle-obj", "title": "Object Lifecycle", "url": "/roadmap/java/oo/lifecycle" },
+          { "id": "inheritance", "title": "Inheritance", "url": "/roadmap/java/oo/inheritance" },
+          { "id": "abstraction", "title": "Abstraction", "url": "/roadmap/java/oo/abstraction" },
+          { "id": "encapsulation", "title": "Encapsulation", "url": "/roadmap/java/oo/encapsulation" },
+          { "id": "interfaces", "title": "Interfaces", "url": "/roadmap/java/oo/interfaces" },
+          { "id": "overloading", "title": "Method Overloading/Overriding", "url": "/roadmap/java/oo/overloading" }
+        ]
+      },
+      {
+        "id": "exceptions-right",
+        "title": "Exceptions",
+        "side": "right",
+        "items": [
+          { "id": "exceptions", "title": "Exception Handling", "url": "/roadmap/java/exceptions" },
+          { "id": "lambdas", "title": "Lambda Expressions", "url": "/roadmap/java/lambdas" },
+          { "id": "annotations", "title": "Annotations", "url": "/roadmap/java/annotations" }
+        ]
+      }
+    ]
+  }
+  

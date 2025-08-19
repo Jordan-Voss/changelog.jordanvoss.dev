@@ -4,11 +4,13 @@ title: 🗺️ Interactive Roadmap
 sidebar_label: 🗺️ Interactive Roadmap
 sidebar_position: 1
 slug: /roadmap
-
 ---
-
-import RoadmapFlow from '@site/src/components/RoadmapFlow';
+import DynamicFlow from '@site/src/components/RoadmapFlow';
+import roadmapData from '@site/src/data/roadmap.json';
 
 This is a visual roadmap of my journey to becoming a Senior Developer. Each box is clickable and links to a real topic or project.
 
-<RoadmapFlow />
+
+<div style={{ height: '80vh', marginTop: 12 }}>
+  <DynamicFlow data={roadmapData} />
+</div>

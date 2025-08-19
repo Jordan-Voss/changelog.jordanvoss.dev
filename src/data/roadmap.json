@@ -1,0 +1,273 @@
+{
+  "nodes": [
+    {
+      "id": "1",
+      "label": "Java",
+      "kind": "main",
+      "position": {
+        "x": 200.08762322015338,
+        "y": 44.01971522453451
+      },
+      "links": [
+        {
+          "title": "Intro to Java",
+          "url": "/roadmap/java/intro"
+        },
+        {
+          "title": "Java Setup",
+          "url": "/roadmap/java/setup"
+        }
+      ],
+      "blurb": "Learn Java",
+      "home": {
+        "title": "Java Overview",
+        "url": "/roadmap/java"
+      }
+    },
+    {
+      "id": "2",
+      "label": "Basics",
+      "kind": "main",
+      "position": {
+        "x": 200,
+        "y": 200
+      },
+      "links": [
+        {
+          "title": "Variables",
+          "url": "/roadmap/java/basics/variables"
+        },
+        {
+          "title": "Arrays",
+          "url": "/roadmap/java/basics/arrays"
+        },
+        {
+          "title": "Conditionals",
+          "url": "/roadmap/java/basics/conditionals"
+        },
+        {
+          "title": "Loops",
+          "url": "/roadmap/java/basics/loops"
+        },
+        {
+          "title": "Methods",
+          "url": "/roadmap/java/basics/methods"
+        }
+      ],
+      "blurb": "Learn Java Basics:",
+      "home": {
+        "title": "Java Basics Overview",
+        "url": "/roadmap/java/basics"
+      }
+    },
+    {
+      "id": "3",
+      "label": "Variables",
+      "kind": "basic",
+      "position": {
+        "x": -180,
+        "y": 25
+      },
+      "links": [
+        {
+          "title": "Variables and Data Types",
+          "url": "/roadmap/java/basics/variables/variables-data-types"
+        },
+        {
+          "title": "Variable Naming",
+          "url": "/roadmap/java/basics/variables/variable-naming"
+        },
+        {
+          "title": "Variable Scope",
+          "url": "/roadmap/java/basics/variables/variable-scope"        },
+        {
+          "title": "Variable Modifiers",
+          "url": "/roadmap/java/basics/variables/variable-modifiers"
+        }
+      ],
+      "blurb": "Learn Java variables: types, naming, scope, and modifiers. This section builds a solid foundation for data handling.",
+      "home": {
+        "title": "Variables Overview",
+        "url": "/roadmap/java/basics/variables"
+      }
+    },
+    {
+      "id": "4",
+      "label": "Arrays",
+      "kind": "basic",
+      "position": {
+        "x": -180,
+        "y": 75
+      },
+      "links": [
+        {
+          "title": "Arrays",
+          "url": "/roadmap/java/basics/arrays"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "label": "Conditionals",
+      "kind": "basic",
+      "position": {
+        "x": -180,
+        "y": 125
+      },
+      "links": [
+        {
+          "title": "Conditionals",
+          "url": "/roadmap/java/basics/conditionals"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "label": "Strings & Methods",
+      "kind": "basic",
+      "position": {
+        "x": -180,
+        "y": 175
+      },
+      "links": [
+        {
+          "title": "Strings & Methods",
+          "url": "/roadmap/java/basics/strings-methods"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "label": "Operations",
+      "kind": "basic",
+      "position": {
+        "x": -180,
+        "y": 225
+      },
+      "links": [
+        {
+          "title": "Operations",
+          "url": "/roadmap/java/basics/operations"
+        }
+      ]
+    },{
+      "id": "8",
+      "label": "Loops",
+      "kind": "basic",
+      "position": {
+        "x": -180,
+        "y": 275
+      },
+      "links": [
+        {
+          "title": "Loops",
+          "url": "/roadmap/java/basics/loops"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "label": "Lifecycle",
+      "kind": "basic",
+      "position": {
+        "x": -180,
+        "y": 325
+      },
+      "links": [
+        {
+          "title": "Lifecycle",
+          "url": "/roadmap/java/basics/conditionals"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "label": "Memory",
+      "kind": "basic",
+      "position": {
+        "x": -180,
+        "y": 375
+      },
+      "links": [
+        {
+          "title": "Memory",
+          "url": "/roadmap/java/basics/memory"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1-2",
+      "source": "1",
+      "target": "2",
+      "type": "step",
+      "sourceSide": "bottom",
+      "targetSide": "top"
+    },
+    {
+      "id": "e2-3",
+      "source": "2",
+      "target": "3",
+      "type": "step",
+      "sourceSide": "left",
+      "targetSide": "right"
+    },
+    {
+      "id": "e2-4",
+      "source": "2",
+      "target": "4",
+      "type": "step",
+      "sourceSide": "left",
+      "targetSide": "right"
+    },
+    {
+      "id": "e2-5",
+      "source": "2",
+      "target": "5",
+      "type": "step",
+      "sourceSide": "left",
+      "targetSide": "right"
+    },
+    {
+      "id": "e2-6",
+      "source": "2",
+      "target": "6",
+      "type": "step",
+      "sourceSide": "left",
+      "targetSide": "right"
+    },
+    {
+      "id": "e2-7",
+      "source": "2",
+      "target": "7",
+      "type": "step",
+      "sourceSide": "left",
+      "targetSide": "right"
+    },
+    {
+      "id": "e2-8",
+      "source": "2",
+      "target": "8",
+      "type": "step",
+      "sourceSide": "left",
+      "targetSide": "right"
+    },
+    {
+      "id": "e2-9",
+      "source": "2",
+      "target": "9",
+      "type": "step",
+      "sourceSide": "left",
+      "targetSide": "right"
+    },
+    {
+      "id": "e2-10",
+      "source": "2",
+      "target": "10",
+      "type": "step",
+      "sourceSide": "left",
+      "targetSide": "right"
+    }
+  ]
+}
