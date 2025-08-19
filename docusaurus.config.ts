@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'My Personal Changelog',
   tagline: 'Becoming a Better Developer, One Step at a Time',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.png',
   url: 'https://changelog.jordanvoss.dev',
   baseUrl: '/',
   organizationName: 'Jordan-Voss',
@@ -51,7 +51,7 @@ const config: Config = {
     ],
   ],
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/logo.png',
     zoom: {
       selector: '.markdown :not(em) > img',
       background: {
@@ -65,10 +65,11 @@ const config: Config = {
       }
     },
     navbar: {
-      title: 'My Dev Journey',
+      title: 'My Personal Changelog',
       logo: {
         alt: 'My Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
+        className: 'navbar-logo-wrapper',
       },
       items: [
         // {

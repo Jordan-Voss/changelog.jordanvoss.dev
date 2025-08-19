@@ -3,6 +3,19 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
+/* Wrapper draws the black rounded square cleanly */
+
+.navbar__logo img {
+  height: 60px;  /* try 40–44px, fits nicely in the navbar */
+  width: auto;
+  background-color: black;
+  border-radius: 8px; /* this is the rounded square */
+}
+.navbar__logo img {
+  height: 36px; /* keeps it balanced */
+  width: auto;
+}
+
 
 /* You can override the default Infima variables here. */
 :root {
