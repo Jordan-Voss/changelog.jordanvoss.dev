@@ -12,6 +12,7 @@ import ReactFlow, {
   Connection,
   BackgroundVariant,
   Handle,
+  ReactFlowProvider,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
@@ -47,7 +48,7 @@ export interface FlowData {
 }
 
 interface DynamicFlowProps {
-  data: FlowData;
+  data?: FlowData;        // <-- make optional for SSR safety
   className?: string;
 }
 
@@ -92,8 +93,12 @@ const hiddenHandle: React.CSSProperties = { width: 10, height: 10, background: '
 function PortNode({ data }: { data: NodeDataIn }) {
   const ports = (data.ports?.length ? data.ports : ['top', 'right', 'bottom', 'left']) as Side[];
 
-  // Fire a custom event so the parent can open the modal
-  const onClick = () => document.dispatchEvent(new CustomEvent('roadmap:nodeClick', { detail: data }));
+  const onClick = () => {
+    // Dispatch only in browser
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      document.dispatchEvent(new CustomEvent('roadmap:nodeClick', { detail: data }));
+    }
+  };
 
   return (
     <div style={getNodeStyle(data.kind)} onClick={onClick} title={data.label}>
@@ -111,21 +116,26 @@ function PortNode({ data }: { data: NodeDataIn }) {
     </div>
   );
 }
+
 const nodeTypes = { port: PortNode };
+const EMPTY: FlowData = { nodes: [], edges: [] };
 
 const toHandleId = (side?: Side): string | undefined =>
   side && ['top', 'right', 'bottom', 'left'].includes(side) ? side : undefined;
 
-export default function DynamicFlow({ data, className = '' }: DynamicFlowProps) {
-  /* Build initial nodes & edges */
+/** Client-only inner canvas (actual React Flow) */
+function FlowCanvas({ data = EMPTY, className = '' }: DynamicFlowProps) {
+  const safeNodes = Array.isArray(data.nodes) ? data.nodes : [];
+  const safeEdges = Array.isArray(data.edges) ? data.edges : [];
+
   const initialNodes: Node<NodeDataIn>[] = useMemo(
-    () => data.nodes.map((n) => ({ id: n.id, type: 'port', position: n.position, data: n })),
-    [data.nodes],
+    () => safeNodes.map((n) => ({ id: n.id, type: 'port', position: n.position, data: n })),
+    [safeNodes],
   );
 
   const initialEdges: Edge[] = useMemo(
     () =>
-      data.edges.map((e) => ({
+      safeEdges.map((e) => ({
         id: e.id,
         source: e.source,
         target: e.target,
@@ -135,11 +145,11 @@ export default function DynamicFlow({ data, className = '' }: DynamicFlowProps) 
         sourceHandle: toHandleId(e.sourceSide),
         targetHandle: toHandleId(e.targetSide),
       })),
-    [data.edges],
+    [safeEdges],
   );
 
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange]   = useEdgesState(initialEdges);
+  const [nodes, , onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onConnect = useCallback(
     (params: Edge | Connection) =>
@@ -147,17 +157,18 @@ export default function DynamicFlow({ data, className = '' }: DynamicFlowProps) 
     [setEdges],
   );
 
-  /* Modal state + event wiring */
+  /* Modal state + event wiring (browser only) */
   const [modalNode, setModalNode] = useState<NodeDataIn | null>(null);
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const handler = (e: Event) => setModalNode((e as CustomEvent<NodeDataIn>).detail || null);
     document.addEventListener('roadmap:nodeClick', handler);
     return () => document.removeEventListener('roadmap:nodeClick', handler);
   }, []);
 
-  /* Copy JSON */
+  /* Copy JSON (browser only) */
   const copyJson = useCallback(() => {
-    const byId = Object.fromEntries(data.nodes.map((n) => [n.id, n]));
+    const byId = Object.fromEntries(safeNodes.map((n) => [n.id, n]));
     const exportNodes = nodes.map((n) => {
       const orig = byId[n.id];
       return {
@@ -180,9 +191,28 @@ export default function DynamicFlow({ data, className = '' }: DynamicFlowProps) 
       targetSide: (e as any).targetHandle,
     }));
     const json = JSON.stringify({ nodes: exportNodes, edges: exportEdges }, null, 2);
-    navigator.clipboard.writeText(json);
-    alert('Roadmap JSON copied to clipboard!');
-  }, [nodes, edges, data.nodes]);
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(json);
+        // eslint-disable-next-line no-alert
+        alert('Roadmap JSON copied to clipboard!');
+      } else {
+        // Fallback: temporary textarea
+        const ta = document.createElement('textarea');
+        ta.value = json;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        // eslint-disable-next-line no-alert
+        alert('Roadmap JSON copied to clipboard!');
+      }
+    } catch {
+      // eslint-disable-next-line no-alert
+      alert('Could not copy to clipboard in this environment.');
+    }
+  }, [nodes, edges, safeNodes]);
 
   return (
     <div className={className} style={{ width: '100%', height: '100%', position: 'relative' }}>
@@ -206,6 +236,10 @@ export default function DynamicFlow({ data, className = '' }: DynamicFlowProps) 
         onConnect={onConnect}
         fitView
         fitViewOptions={{ padding: 0.2 }}
+        onInit={(instance) => {
+          // run once on mount to mimic "fitViewOnInit"
+          instance.fitView({ padding: 0.2 });
+        }}
       >
         <Controls style={{ background: 'white', border: '2px solid #111', borderRadius: 8 }} />
         <MiniMap
@@ -216,7 +250,6 @@ export default function DynamicFlow({ data, className = '' }: DynamicFlowProps) 
         <Background variant={BackgroundVariant.Dots} gap={16} size={1} color="#d1d5db" />
       </ReactFlow>
 
-      {/* Modal */}
       {/* Modal */}
       {modalNode && (
         <div
@@ -243,7 +276,7 @@ export default function DynamicFlow({ data, className = '' }: DynamicFlowProps) 
                   href={modalNode.home.url}
                   style={{
                     padding: '4px 10px',
-                    borderRadius: 9999, // pill shape
+                    borderRadius: 9999,
                     background: '#f3f4f6',
                     border: '1px solid #d1d5db',
                     color: '#111',
@@ -308,7 +341,20 @@ export default function DynamicFlow({ data, className = '' }: DynamicFlowProps) 
           </div>
         </div>
       )}
-
     </div>
+  );
+}
+
+/** Exported component: SSR-safe wrapper */
+export default function DynamicFlow(props: DynamicFlowProps) {
+  const isClient = typeof window !== 'undefined';
+  if (!isClient) {
+    // SSR: render a non-crashing placeholder (no ReactFlow, no window usage)
+    return <div style={{ width: '100%', height: '100%' }} />;
+  }
+  return (
+    <ReactFlowProvider>
+      <FlowCanvas {...props} />
+    </ReactFlowProvider>
   );
 }
