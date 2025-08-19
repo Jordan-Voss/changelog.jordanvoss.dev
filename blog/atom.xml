@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://changelog.jordanvoss.dev/blog"/>
     <subtitle>My Personal Changelog Blog</subtitle>
-    <icon>https://changelog.jordanvoss.dev/img/favicon.ico</icon>
+    <icon>https://changelog.jordanvoss.dev/img/logo.png</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>https://changelog.jordanvoss.dev/blog/welcome</id>
