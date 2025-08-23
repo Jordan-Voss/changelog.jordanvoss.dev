@@ -88,6 +88,12 @@
       "term": "Two’s Complement",
       "definition": "A binary representation for signed integers where the MSB indicates sign.",
       "link": "/glossary/twos-complement"
+    },
+    {
+      "term": "Keyword",
+      "definition": "A reserved word that has a predefined meaning in the language syntax and cannot be used as an identifier",
+      "link": "/glossary/keyword"
     }
+
   ]
   

@@ -1,0 +1,53 @@
+---
+id: variable-naming
+title: 📍 Variable Naming
+sidebar_label: Naming
+slug: /roadmap/java/basics/variables/variable-naming
+---
+import GlossaryTooltip from '@site/src/components/GlossaryTooltip';
+import MarkRead from '@site/src/components/MarkRead';
+
+<MarkRead url="/roadmap/java/basics/variables/variables-naming" />
+
+# Java Variable Naming
+Naming variables correctly is important for writing **readable** and **maintainable** code. Variable names can be enforced by the Java compiler, to make sure they follow the language's rules (no spaces, valid characters etc.), but **naming conventions** are also used as a guide for developers to structure names so that it remains clear and readable for everyone involved
+
+---
+
+## On this page you’ll learn:
+- The standard Java naming conventions
+- The difference between compiler-enforced rules and agreed-upon style conventions  
+- Examples of good vs. bad variable names and why conventions matter
+
+---
+
+## Variable Naming Rules (Compiler-Enforced)
+
+In Java, every <GlossaryTooltip term="variable" definition="A named storage location in memory for data, which has a type." link="/glossary/variable" bold="true"/> must follow certain **rules**.
+
+### What variable names should be
+- Made up of **letters, digits, underscores (`_`)**, or **dollar signs (`$`)**  
+- Begin with a **letter**, underscore, or dollar sign (never a digit)  
+- Written consistently — remember, Java is **case-sensitive** (`age` and `Age` are different)
+
+### What variable names cannot be
+- Cannot start with a digit (`2items` is invalid)  
+- Cannot use spaces or special characters (`total-cost`, `user@name`)  
+- Cannot be a reserved <GlossaryTooltip term="keyword" definition="Words reserved by the Java language with special meaning, like class, if, static." link="/glossary/keyword" bold="true" /> (`class`, `if`, `static`).  
+See the [keyword glossary entry](/glossary/keyword) for the full list.
+
+### Examples
+Valid:  
+```java
+int count;
+double _value;
+float $price;
+```
+Invalid:
+```java
+int 2count;
+double class;
+float total-cost;
+```
+
+---

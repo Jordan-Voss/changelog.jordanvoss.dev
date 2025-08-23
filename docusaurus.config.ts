@@ -68,8 +68,8 @@ const config: Config = {
       title: 'My Personal Changelog',
       logo: {
         alt: 'My Logo',
-        src: 'img/logo.png',
-        className: 'navbar-logo-wrapper',
+        src: null, // don’t use an image
+        className: 'navbar-text-logo',
       },
       items: [
         // {

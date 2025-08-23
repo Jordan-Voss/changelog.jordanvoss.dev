@@ -1,0 +1,348 @@
+---
+id: java-naming-conventions
+title: ✏️ Java Naming Conventions
+sidebar_label: Naming Conventions
+slug: /roadmap/java/basics/naming-conventions
+---
+import GlossaryTooltip from '@site/src/components/GlossaryTooltip';
+import MarkRead from '@site/src/components/MarkRead';
+import BackLink from '@site/src/components/BackLink';
+
+<MarkRead url="/roadmap/java/basics/naming-conventions" />
+
+# Java Naming Conventions
+
+Naming things correctly is one of the most important parts of writing readable and maintainable code. Java has rules that are enforced by the compiler (for example, valid characters, no spaces, not starting with a digit), but it also has widely adopted naming conventions. These conventions aren’t enforced by the language, but they help developers keep code consistent, understandable, and easy to work with in teams.
+
+---
+
+## On this page you’ll learn:
+- The standard Java naming conventions
+- The difference between compiler-enforced rules and style conventions
+- Naming conventions for **variables, methods, classes, constants, packages, and more**
+- Examples of good vs bad names and why conventions matter
+
+---
+
+## General Identifier Rules (Compiler-Enforced)
+
+These apply to *all* identifiers (variables, methods, classes, etc.):  
+
+What names can be:
+- Letters, digits, underscores (`_`), or dollar signs (`$`)
+- Start with a **letter**, underscore, or dollar sign (not a digit)
+- Case-sensitive (`age` ≠ `Age`)
+
+What names cannot be:
+- Start with a digit (`2count`)
+- Contain spaces or special characters (`total-cost`, `user@name`)
+- Be a reserved <GlossaryTooltip term="keyword" definition="Words reserved by the Java language with special meaning, like `class`, `if`, `static`." link="/glossary/keyword" bold="true" />
+
+Valid Examples:
+```java
+int count;
+double _value; 
+float $price;
+```
+Invalid Examples:
+```java
+int 2count; 
+double class; 
+float total-cost;
+```
+---
+
+## Case Styles
+Before looking at Java specifically, here are the common case styles used in programming:
+
+- **camelCase** → First word is lowercase and all subsequent words begin with a capital letter
+
+    `camelCaseNamingConvention`
+- **PascalCase (UpperCamelCase)** → All words begin with a capital letter
+
+    `PascalCaseNamingConvention`
+- **snake_case** → All words are lowercase and separated by an underscore (`_`) This is not used in Java, but common in Python  
+
+    `snake_case_naming_convention` 
+
+- **CONSTANT_CASE** or **SCREAMING_SNAKE_CASE** → Snake case but all letters are capitalised.
+
+    `SCREAMING_SNAKE_CASE_NAMING_CONVENTION`
+- **kebab-case** → All words separated by a dash (`-`) not used in Java, but common in CSS/URLs
+
+    `kebab-case-naming-convention`
+
+---
+
+## Variables  
+
+Variable names should be short, but descriptive. A good name makes the purpose 
+of the variable clear to anyone reading the code, without needing extra explanation. 
+While Java allows variable names to start with an underscore (`_`) or 
+dollar sign (`$`), these should generally be avoided as they reduce readability.
+
+Variable names should be **mnemonic**, meaning they should give a clear hint about their intended use. One-character variable names are discouraged except for **temporary variables**, where short names are common. By convention:  
+- `i`, `j`, `k`, `m`, `n` are often used for integer counters  
+- `c`, `d`, `e` may be used for characters  
+
+**`camelCase`** is always used for variables.
+
+#### Naming with Data Types  
+
+Variable names should often reflect both the **type of data** and the **role** it plays in the program.  
+
+Here are some examples of good naming practices across common Java types:  
+
+**Booleans** should read like a question or states
+```java
+boolean hasPassed;
+boolean isEmpty
+```
+
+**Strings** represent text data, more often Nouns
+```java
+String customerName;
+String addressLine1;
+```
+
+**Collections** use plural names or should describe the relationship between their elements
+```java
+List<String> users;
+Map<Integer, Order> ordersByUserId;
+```
+
+**Units of Measurement** should always include the unit in the name
+```java
+long timeoutMs;
+double distanceKm;
+float weightKg;
+```
+---
+
+## 3. Methods
+
+Method names should be **descriptive and action-oriented**. A good method name 
+makes it clear what the method does, and what kind of result (if any) it produces.  
+Unlike variables, methods almost always start with a **verb**, since they perform 
+an action. Method names in Java always use **camelCase**.  
+
+As with variable names, while Java allows identifiers to begin with an underscore (`_`) 
+or dollar sign (`$`), this should be avoided in practice. Normal developer-written 
+methods should always start with a letter for clarity and consistency. 
+
+#### Naming with Return Types
+
+**Boolean** returning methods should be phrased like questions or states
+```java
+boolean isEmpty();
+boolean hasPermission(User user);
+```
+
+**Value** returning methods (e.g. Strings, numbers, computed results) should describe the value they are Returning
+```java
+int calculateSum(int a, int b);
+String formatCurrency(double amount);
+```
+
+**Object** returning methods should use get for access to properties, and `find`/`load`/`fetch` for retrieving from somewhere (i.e. a datasource)
+```java
+String getName();
+User findUserById(long id);
+Order loadOrder(long id);
+```
+
+**Collection** returning methods should use plurals or describe the filter/group it returnsZ_whenConditionMet
+```java
+List<Order> listOrders();
+List<User> findUsersByRole(String role);
+Map<Long, Order> getOrdersById(Set<Long> ids);
+```
+**Side Effect (void)** returning methods should be named after the task they perform, using action verbs (avoid `get`)
+```java
+void printInvoice(Invoice invoice);
+void updateStatus(Order order, Status status);
+void sendEmail(Message message, User recipient);
+```
+
+**Creation/Conversion** methods should describe the construction or transformation of the data
+```java
+Invoice createInvoice(Order order);
+static User fromDto(UserDto userDto);
+String toJson();
+```
+
+
+## 4. Classes, Interfaces, Enums, Records
+
+These identifiers usually represent **types** in Java, and so their names should be 
+clear, descriptive, and consistent. All of them use **`PascalCase`**, where each word 
+starts with a capital letter.  
+
+### Classes
+Classes usually represent **real-world concepts or entities** in your program, 
+so their names should be **nouns**
+
+```java
+public class BankAccount { ... };
+public class UserProfile { ... };
+```
+
+### Interfaces
+Interfaces often describe **capabilities**, **contracts**, or **behaviour**, so adjectives are common,
+though nouns are also possible when the interface defines a role.
+
+```java
+public interface Readable { ... };
+publice interface Comparable { ... };
+```
+
+### Enums
+Enums are classes that define a fixed set of constants.
+- The name of the enum is written in **`PascalCase`**
+- The members of the enum are written in **`SCREAMING_SNAKE_CASE`**
+```java
+public enim Status {
+    PENDING,
+    APPROVED,
+    REJECTED,
+    IN_PROGRESS,
+    ON_HOLD,
+    CANCELLED
+}
+```
+
+### Records (Java 14+)
+Records are special classes for **immutable data carriers**. They’re ideal when you just need 
+to hold values and avoid boilerplate, since Java automatically generates `equals`, `hashCode`, 
+`toString`, and getters. Use a regular class instead if the object needs **behavior, mutability, 
+or inheritance**. They follow the same naming convention as classes, using **`PascalCase`**.
+
+```java
+public record Point(int x, int y) {}
+public record PersonRecord(String name, int age) {}
+---
+
+## 5. Constants (`static final`)
+
+- Always **UPPER_SNAKE_CASE** → `MAX_USERS`, `DEFAULT_TIMEOUT_MS`  
+- Separate words with underscores
+
+```java
+public static final int MAX_USERS = 100;
+public static final String DEFAULT_REGION = "eu-west-1";
+```
+
+---
+
+## 6. Packages & Modules
+
+- All **lowercase**  
+- Reverse domain name style → `com.example.myapp`  
+- No underscores or hyphens  
+
+```java
+package com.mycompany.myproject;
+module com.mycompany.myproject {}
+```
+
+---
+
+## 7. Type Parameters (Generics)
+
+- Single uppercase letters, by convention:  
+  - `T` → Type  
+  - `E` → Element  
+  - `K`, `V` → Key, Value  
+  - `R` → Return type  
+
+```java
+public interface List<E> {
+    void add(E element);
+}
+```
+
+---
+
+## 8. Annotations
+
+- **PascalCase**  
+- Often describe a property or capability  
+
+```java
+public @interface NotNull {}
+public @interface Override {}
+```
+
+---
+
+## 9. Tests
+
+- Methods in tests describe **behavior**  
+- Patterns: `shouldDoX_whenY`, `returnsZ_whenConditionMet`  
+- Can use camelCase or snake_case depending on style  
+
+```java
+@Test
+public void shouldCalculateTotal_whenCartNotEmpty() { ... }
+```
+
+---
+
+## 10. Acronyms & Edge Cases
+
+- For acronyms, capitalize like words → `HttpClient`, `urlString`  
+- Constants still use UPPER_SNAKE_CASE → `MAX_HTTP_SIZE`  
+- Common exceptions: `URL`, `ID` are often kept uppercase (`userID`)  
+
+---
+
+## Common Mistakes
+
+- ❌ Generic: `tmp`, `data`, `value1`  
+- ❌ Misleading: `users` but it’s a `Map`, `timeout` with no unit  
+- ❌ Negated booleans: `notEnabled` (use `isDisabled`)  
+- ❌ Shouting acronyms: `HTMLParser` vs `HtmlParser`  
+- ❌ Redundant names: `userListList`  
+
+---
+
+## Quick Reference Table
+
+| Category     | Convention        | Examples                           |
+|--------------|------------------|------------------------------------|
+| Variables    | camelCase         | `userName`, `accountBalance`       |
+| Booleans     | is/has/can/should | `isEmpty`, `hasAccess`             |
+| Methods      | camelCase, verbs  | `calculateTotal()`, `printReport()`|
+| Classes      | PascalCase        | `BankAccount`, `UserProfile`       |
+| Interfaces   | PascalCase        | `Readable`, `Comparable`           |
+| Enums        | PascalCase        | `DayOfWeek`                        |
+| Enum values  | UPPER_SNAKE_CASE  | `MONDAY`, `TUESDAY`                |
+| Constants    | UPPER_SNAKE_CASE  | `MAX_USERS`, `DEFAULT_TIMEOUT_MS`  |
+| Packages     | lowercase         | `com.example.myapp`                |
+| Modules      | lowercase         | `com.example.myproject`            |
+| Generics     | Single uppercase  | `T`, `E`, `K`, `V`, `R`            |
+| Annotations  | PascalCase        | `@NotNull`, `@Override`            |
+| Tests        | Behavior-based    | `shouldDoX_whenY`                  |
+
+---
+
+## Summary
+
+- **Compiler rules:** no digits first, no spaces, no keywords, case-sensitive.  
+- **Variables & methods:** camelCase, descriptive, verbs for methods.  
+- **Booleans:** `is/has/can` style.  
+- **Classes/Interfaces/Records:** PascalCase.  
+- **Enums:** PascalCase, values in UPPER_SNAKE_CASE.  
+- **Constants:** UPPER_SNAKE_CASE.  
+- **Packages/Modules:** all lowercase, reverse domain naming.  
+- **Generics:** single uppercase letters.  
+- **Tests:** describe behavior clearly.  
+- **Acronyms:** capitalize like words (`HttpClient`), not all caps.  
+
+---
+
+Learn more:
+- [Variables & Data Types](/roadmap/java/basics/variables-data-types)
+- [Keyword Glossary Entry](/glossary/keyword)
+
+<BackLink />

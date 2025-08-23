@@ -5,17 +5,18 @@
  */
 /* Wrapper draws the black rounded square cleanly */
 
-.navbar__logo img {
-  height: 60px;  /* try 40–44px, fits nicely in the navbar */
-  width: auto;
-  background-color: black;
-  border-radius: 8px; /* this is the rounded square */
+.navbar-text-logo::before {
+  content: ">-C";
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 20px;      /* adjust to taste */
+  color: white;
+  background: black;
+  border-radius: 8px;   /* control rounding */
+  padding: 4px 8px;     /* spacing inside box */
+  display: inline-block;
+  line-height: 1;
 }
-.navbar__logo img {
-  height: 36px; /* keeps it balanced */
-  width: auto;
-}
-
 
 /* You can override the default Infima variables here. */
 :root {
