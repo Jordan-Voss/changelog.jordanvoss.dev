@@ -192,7 +192,7 @@ Interfaces often describe **capabilities**, **contracts**, or **behaviour**, so 
 though nouns are also possible when the interface defines a role.
 
 ```java
-public interface Readable { ... };
+public interface Readable { ... }; 
 publice interface Comparable { ... };
 ```
 
@@ -220,125 +220,214 @@ or inheritance**. They follow the same naming convention as classes, using **`Pa
 ```java
 public record Point(int x, int y) {}
 public record PersonRecord(String name, int age) {}
+```
 ---
 
-## 5. Constants (`static final`)
+## Constants  
 
-- Always **UPPER_SNAKE_CASE** → `MAX_USERS`, `DEFAULT_TIMEOUT_MS`  
-- Separate words with underscores
+Constants represent values that **never change** (declared with `static final`).  
+They should be written in **`SCREAMING_SNAKE_CASE`**, where all letters are uppercase 
+and words are separated by underscores. This convention makes constants stand out 
+clearly from regular variables.  
 
 ```java
 public static final int MAX_USERS = 100;
 public static final String DEFAULT_REGION = "eu-west-1";
+public static final double PI = 3.14159;
 ```
-
 ---
 
-## 6. Packages & Modules
+## Packages & Modules  
 
-- All **lowercase**  
-- Reverse domain name style → `com.example.myapp`  
-- No underscores or hyphens  
+Packages and modules group related classes together. Their names are written in 
+**all lowercase**, usually following a **reverse domain name style** (e.g. `com.example.myapp`).  
+This avoids conflicts between organisations and keeps names consistent.  
+Underscores (`_`) and dashes (`-`) should never be used.  
 
 ```java
 package com.mycompany.myproject;
+
 module com.mycompany.myproject {}
 ```
 
 ---
 
-## 7. Type Parameters (Generics)
+## Type Parameters (Generics)  
 
-- Single uppercase letters, by convention:  
-  - `T` → Type  
-  - `E` → Element  
-  - `K`, `V` → Key, Value  
-  - `R` → Return type  
+Generics let you write classes, interfaces, and methods that can work with 
+**different data types** while still being **type-safe**. Instead of creating 
+separate versions of a class for `String`, `Integer`, etc., you can use a 
+**type parameter** as a placeholder. The compiler then enforces that only the 
+correct type is used.  
+
+By convention, type parameters are written as **single uppercase letters**:  
+- `T` → Type (a generic placeholder)  
+- `E` → Element (commonly used in collections)  
+- `K`, `V` → Key and Value (for maps)  
+- `R` → Return type (for methods that return generics)  
 
 ```java
-public interface List<E> {
-    void add(E element);
+public class Box<T> { ... }
+public interface List<E> { ... }
+public interface Map<K, V> { ... }
+```
+
+
+---
+
+## Annotations
+
+Annotations are a form of metadata in Java, used to provide information to the 
+compiler, runtime, or frameworks. They are written with `@` before the name and 
+are usually used to mark properties, constraints, or capabilities.  
+
+Annotation names use **`PascalCase`**, just like classes and interfaces.  
+
+### Examples  
+
+```java
+public @interface NotNull {}
+public @interface Override {}
+public @interface Deprecated {}
+```
+---
+
+## Tests
+
+Test names should clearly describe the **behavior being tested** and the **condition** under which it happens.  
+This makes tests double as documentation, so failures are easy to understand.  
+
+Common naming styles:  
+- `shouldDoX_whenY` → describes expected behavior under a condition  
+- `returnsZ_whenCondition` → shows the return value under a condition  
+- `givenWhenThen` → expresses behavior in BDD style (`givenX_whenY_thenZ`)
+
+Tests can use **`camelCase`** or **`snake_case`**, but consistency is more important than style.  
+
+```java
+@Test
+public void shouldCalculateTotal_whenCartNotEmpty() { ... }
+
+@Test
+public void returnsZero_whenCartIsEmpty() { ... }
+
+@Test
+public void isEligible_returnsTrue_whenAgeIs18OrMore() { ... }
+```
+A nested test class (annotated with **`@Nested`**) is an inner class used to group related test cases together 
+under a shared context, making test names shorter and easier to read.
+```java
+class CartTest {
+
+    @Nested
+    class WhenCartIsEmpty {
+        @Test void returnsZero() { ... }
+        @Test void hasNoItems() { ... }
+    }
+
+    @Nested
+    class WhenCartHasItems {
+        @Test void sumsItems() { ... }
+        @Test void appliesDiscounts() { ... }
+    }
 }
 ```
 
 ---
 
-## 8. Annotations
+## Acronyms & Edge Cases  
 
-- **PascalCase**  
-- Often describe a property or capability  
+In Java, acronyms should be written using the **normal case rules** for identifiers:  
 
-```java
-public @interface NotNull {}
-public @interface Override {}
-```
+- **`PascalCase`** (classes, interfaces, records): `HttpClient`, `JsonParser`, `UrlEncoder`  
+- **`camelCase`** (variables, methods): `httpClient`, `jsonData`, `urlString`  
+- **`UPPER_SNAKE_CASE`** (constants): `MAX_HTTP_SIZE`, `SUPPORTED_JSON_TYPES`  
 
----
+This keeps acronyms consistent with other words and avoids distracting all-caps inside names.  
 
-## 9. Tests
+#### Edge Cases  
 
-- Methods in tests describe **behavior**  
-- Patterns: `shouldDoX_whenY`, `returnsZ_whenConditionMet`  
-- Can use camelCase or snake_case depending on style  
+Short acronyms like **ID, URL, DB, IP** are treated inconsistently across codebases.  
 
-```java
-@Test
-public void shouldCalculateTotal_whenCartNotEmpty() { ... }
-```
+- **Modern style:** treat them as normal words. `userId`, `urlString`, `dbConnection`, `ipAddress`.  
+- **Legacy/older style:** keep the acronym uppercase. `userID`, `URLParser`, `DBConnection`, `IPAddress`.  
 
----
-
-## 10. Acronyms & Edge Cases
-
-- For acronyms, capitalize like words → `HttpClient`, `urlString`  
-- Constants still use UPPER_SNAKE_CASE → `MAX_HTTP_SIZE`  
-- Common exceptions: `URL`, `ID` are often kept uppercase (`userID`)  
+Both are correct in practice — the key is to be **consistent** in your project.  
 
 ---
 
 ## Common Mistakes
 
-- ❌ Generic: `tmp`, `data`, `value1`  
-- ❌ Misleading: `users` but it’s a `Map`, `timeout` with no unit  
-- ❌ Negated booleans: `notEnabled` (use `isDisabled`)  
-- ❌ Shouting acronyms: `HTMLParser` vs `HtmlParser`  
-- ❌ Redundant names: `userListList`  
+Even when following conventions, it’s easy to slip into poor naming habits.  
+Here are some common pitfalls to avoid:  
 
+**Generic names** are too vague to be meaningful  
+  ```java
+  int tmp; 
+  String data; 
+  double value1;
+  ```
+**Misleading names** where the name doesnt match the type or usage
+```java
+Map<Integer, User> users;   // this is a Map, not a List
+long timeout;   // no unit specified
+```
+
+**Negated Booleans** can be double negatives and be confusing
+```java
+boolean notVisible;   // forces the reader to think in negatives
+boolean isHidden;     // clearly describes the state
+```
+**Shouting long acronyms** breaks consistency
+```java
+class HTMLParser {}
+```
+**Redundant names** mean we are unneccessarily repeating type information
+```java
+List<User> userList;   // type already tells us it's a List
+List<User> users;      // clearer and more natural
+
+Map<Integer, User> userMap;   // repeats type
+Map<Integer, User> usersById; // describes intent
+```
 ---
 
 ## Quick Reference Table
 
-| Category     | Convention        | Examples                           |
-|--------------|------------------|------------------------------------|
-| Variables    | camelCase         | `userName`, `accountBalance`       |
-| Booleans     | is/has/can/should | `isEmpty`, `hasAccess`             |
-| Methods      | camelCase, verbs  | `calculateTotal()`, `printReport()`|
-| Classes      | PascalCase        | `BankAccount`, `UserProfile`       |
-| Interfaces   | PascalCase        | `Readable`, `Comparable`           |
-| Enums        | PascalCase        | `DayOfWeek`                        |
-| Enum values  | UPPER_SNAKE_CASE  | `MONDAY`, `TUESDAY`                |
-| Constants    | UPPER_SNAKE_CASE  | `MAX_USERS`, `DEFAULT_TIMEOUT_MS`  |
-| Packages     | lowercase         | `com.example.myapp`                |
-| Modules      | lowercase         | `com.example.myproject`            |
-| Generics     | Single uppercase  | `T`, `E`, `K`, `V`, `R`            |
-| Annotations  | PascalCase        | `@NotNull`, `@Override`            |
-| Tests        | Behavior-based    | `shouldDoX_whenY`                  |
+| Category       | Convention             | Examples                                        |
+|----------------|------------------------|-------------------------------------------------|
+| Variables      | camelCase              | `userName`, `accountBalance`                    |
+| Booleans       | is/has/can/should      | `isEmpty`, `hasAccess`, `canRetry`, `shouldSave`|
+| Methods        | camelCase, verbs       | `calculateTotal()`, `printReport()`, `sendEmail()` |
+| Classes        | PascalCase, nouns      | `BankAccount`, `UserProfile`                    |
+| Interfaces     | PascalCase, adjectives | `Readable`, `Comparable`, `Serializable`        |
+| Enums          | PascalCase             | `DayOfWeek`, `Status`                           |
+| Enum values    | UPPER_SNAKE_CASE       | `MONDAY`, `IN_PROGRESS`                         |
+| Records        | PascalCase, nouns      | `Point`, `PersonRecord`                         |
+| Constants      | UPPER_SNAKE_CASE       | `MAX_USERS`, `DEFAULT_TIMEOUT_MS`               |
+| Packages       | lowercase              | `com.example.myapp`                             |
+| Modules        | lowercase              | `com.example.myproject`                         |
+| Generics       | Single uppercase letter| `T`, `E`, `K`, `V`, `R`                         |
+| Annotations    | PascalCase             | `@NotNull`, `@Override`, `@Deprecated`          |
+| Tests          | Behavior-based         | `shouldDoX_whenY`, `returnsZ_whenConditionMet`  |
+| Acronyms       | Normal casing rules    | `HttpClient`, `urlString`, `MAX_HTTP_SIZE`      |
 
 ---
 
-## Summary
+## Summary  
 
-- **Compiler rules:** no digits first, no spaces, no keywords, case-sensitive.  
-- **Variables & methods:** camelCase, descriptive, verbs for methods.  
-- **Booleans:** `is/has/can` style.  
-- **Classes/Interfaces/Records:** PascalCase.  
-- **Enums:** PascalCase, values in UPPER_SNAKE_CASE.  
-- **Constants:** UPPER_SNAKE_CASE.  
-- **Packages/Modules:** all lowercase, reverse domain naming.  
-- **Generics:** single uppercase letters.  
-- **Tests:** describe behavior clearly.  
-- **Acronyms:** capitalize like words (`HttpClient`), not all caps.  
-
+- **Compiler rules:** identifiers can’t start with digits, contain spaces, or use reserved keywords; Java is case-sensitive.  
+- **Variables:** use camelCase, short but descriptive; avoid `_` or `$` prefixes.  
+- **Booleans:** use positive, state-like names (`isEmpty`, `hasAccess`), avoid negations (`notVisible`).  
+- **Methods:** camelCase, verbs describing action; `get` for properties, `find/load/fetch` for retrieval, action verbs for void methods.  
+- **Classes/Interfaces/Records:** PascalCase; classes as nouns, interfaces as capabilities/roles, records as simple data carriers.  
+- **Enums:** PascalCase type name; enum constants in UPPER_SNAKE_CASE.  
+- **Constants:** always UPPER_SNAKE_CASE.  
+- **Packages/Modules:** all lowercase, reverse domain style.  
+- **Generics:** single uppercase letters (`T`, `E`, `K`, `V`, `R`).  
+- **Annotations:** PascalCase, describe property or capability.  
+- **Tests:** names describe expected behavior + condition (`shouldX_whenY`); use `@Nested` to group scenarios.  
+- **Acronyms:** follow normal casing rules (`HttpClient`, `urlString`), constants remain uppercase (`MAX_HTTP_SIZE`). Edge cases like `ID`/`URL` vary, but consistency is key.  
 ---
 
 Learn more:
